@@ -1,45 +1,38 @@
 // Saves options to chrome.storage
 
-const firstname = document.getElementById('firstname-el');
-const lastname = document.getElementById('lastname-el');
-const mobile = document.getElementById('mobile-el');
-const email = document.getElementById('email-el');
-const linkedin = document.getElementById('linkedin-el');
-const github = document.getElementById('github-el');
-const portfolio = document.getElementById('portfolio-el');
-const currentEmployerEl = document.getElementById('current-employer-el');
-const currentEmployerYearsEl = document.getElementById('current-employer-years-el');
-const currentEmployerIndustryEl = document.getElementById('current-employer-industry-el');
-const jobTypeEl = document.getElementById('job-type-el').value;
-const softskillOneEl = document.getElementById('softskill-one-el');
-const softskillTwoEl = document.getElementById('softskill-two-el');
-const currentlyEmployed = document.getElementById('currently-employed');
-
-const projectOneNameEl = document.getElementById('project-one-name-el');
-const projectOneDescEl = document.getElementById('project-one-desc-el');
-const projectTwoNameEl = document.getElementById('project-two-name-el');
-const projectTwoDescEl = document.getElementById('project-two-desc-el');
-const projectThreeNameEl = document.getElementById('project-three-name-el');
-const projectThreeDescEl = document.getElementById('project-three-desc-el');
-// const  = document.getElementById('');
-
-
-//Display employment questions only if currently employed
-currentlyEmployed.addEventListener("option", function(){
-    if (yes){
-
-    }
-})
-
 function save_options() {
-    var color = document.getElementById('color').value;
-    var likesColor = document.getElementById('like').checked;
+ 
+    let firstname = document.getElementById('firstname-el').value;
+    let lastname = document.getElementById('lastname-el').value;
+    let mobile = document.getElementById('mobile-el').value;
+    let email = document.getElementById('email-el').value;
+    let linkedin = document.getElementById('linkedin-el').value;
+    let github = document.getElementById('github-el').value;
+    let portfolio = document.getElementById('portfolio-el').value;
+    let currentEmployer = document.getElementById('current-employer-el').value;
+    let currentEmployerYears = document.getElementById('current-employer-years-el').value;
+    let currentEmployerIndustry = document.getElementById('current-employer-industry-el').value;
+    let jobType = document.getElementById('job-type-el').value;
+    let softskillOne = document.getElementById('softskill-one-el').value;
+    let softskillTwo = document.getElementById('softskill-two-el').value;
+    let softskillThree = document.getElementById('softskill-three-el').value;
+    let softskillFour = document.getElementById('softskill-four-el').value;
+    let softskillFive = document.getElementById('softskill-five-el').value;
+    let softskillSix = document.getElementById('softskill-six-el').value;
+    let currentlyEmployed = document.getElementById('currently-employed').value;
+    let projectOneName = document.getElementById('project-one-name-el').value;
+    let projectOneDesc = document.getElementById('project-one-desc-el').value;
+    let projectTwoName = document.getElementById('project-two-name-el').value;
+    let projectTwoDesc = document.getElementById('project-two-desc-el').value;
+    let projectThreeName = document.getElementById('project-three-name-el').value;
+    let projectThreeDesc = document.getElementById('project-three-desc-el').value;
+
     chrome.storage.sync.set({
-      favoriteColor: color,
-      likesColor: likesColor
+        firstname: firstname,
+      
     }, function() {
       // Update status to let user know options were saved.
-      var status = document.getElementById('status');
+      let status = document.getElementById('save-el');
       status.textContent = 'Options saved.';
       setTimeout(function() {
         status.textContent = '';
@@ -50,15 +43,14 @@ function save_options() {
   // Restores select box and checkbox state using the preferences
   // stored in chrome.storage.
   function restore_options() {
-    // Use default value color = 'red' and likesColor = true.
+  
     chrome.storage.sync.get({
-      favoriteColor: 'red',
-      likesColor: true
+        firstname: 'user'
     }, function(items) {
-      document.getElementById('color').value = items.favoriteColor;
-      document.getElementById('like').checked = items.likesColor;
+    document.getElementById('firstname-el').value = items.firstname;
+       
     });
   }
   document.addEventListener('DOMContentLoaded', restore_options);
-  document.getElementById('save').addEventListener('click',
+  document.getElementById('save-el').addEventListener('click',
       save_options);

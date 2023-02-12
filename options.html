@@ -8,9 +8,10 @@
 </head>
 <body>
 <h1>
-    Your Information 
+    Information for cover letter 
 </h1>
-<p>The information you provide is used to generate cover letters.</p>
+<p>The information you provide is saved and used to generate your cover letters.</p>
+<h3>Signature Information</h3>
 <p>Enter information:</p>
 <label>
    First name: 
@@ -41,6 +42,9 @@
     <input type="text" id="portfolio-el" placeholder="http://...">  
   </label><br>
   <hr>
+  <h3>Employment Information</h3>
+  <p>Instructions for Currently employed:<br> selecting <em>Yes</em>
+     will include the sentence:<br> "While working <em>full time </em>or <em>part time</em> at <em>Company's name</em>"</p>
   <label>
     Currently Employed?
     <select id="currently-employed">
@@ -49,16 +53,16 @@
         </select>
   </label><br>
   <label>
-    Current Employer:
-    <input type="text" id="current-employer-el">
-  </label><br>
-  <label>
-    Current years worked:
-    <input type="text" id="current-employer-years-el">
-  </label><br>
-  <label>
     Industry:
-    <input type="text" id="current-employer-industry-el">
+    <input type="text" id="current-employer-industry-el" placeholder="Retail... Service... Construction...">
+  </label><br>
+  <label>
+    Employer:
+    <input type="text" id="current-employer-el" placeholder="Amazon... Denny's...">
+  </label><br>
+  <label>
+    years worked:
+    <input type="text" id="current-employer-years-el" placeholder="2...">
   </label><br>
   <label>
     Job Type:
@@ -68,15 +72,33 @@
         <option value="seasonal">Seasonal</option>
     </select>
   </label><br>
+  <h4>Transferable soft skills from employer</h4>
   <label>
     Soft skill 1:
-    <input type="text" id="softskill-one-el">
+    <input type="text" id="softskill-one-el" placeholder="Time management...">
   </label><br>
   <label>
     Soft skill 2:
-    <input type="text" id="softskill-two-el">
+    <input type="text" id="softskill-two-el" placeholder="Organization...">
+  </label><br>
+  <label>
+    Soft skill 3:
+    <input type="text" id="softskill-three-el" placeholder="Problem-solving...">
+  </label><br>
+  <label>
+    Soft skill 4:
+    <input type="text" id="softskill-four-el" placeholder="Adaptability...">
+  </label><br>
+  <label>
+    Soft skill 5:
+    <input type="text" id="softskill-five-el" placeholder="Communication...">
+  </label><br>
+  <label>
+    Soft skill 6:
+    <input type="text" id="softskill-six-el" placeholder="Critical Thinking...">
   </label><br>
   <hr>
+  <h3>Project Information</h3>
   <label>
     Project name:
     <input type="text" id="project-one-name-el" placeholder="Project name...">
