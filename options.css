@@ -1,5 +1,25 @@
+:root{
+    --dark:  #2F4858;
+    --medium: #e4eaee;
+    --light: whitesmoke;
+}
 *{
     box-sizing: border-box;
+}
+body{
+    margin: 0 auto;
+    color: #0E161B;
+    font: 1.1em sans-serif;
+}
+.blue{
+    --dark:  #2F4858;
+    --medium: #e4eaee;
+    --light: whitesmoke;
+}
+.purple{
+    --dark: #484462;
+    --medium:#dfdee4;
+    --light: #FFF0F0; 
 }
 button{
     margin-top: 10px;
@@ -7,4 +27,18 @@ button{
 }
 input[type="text"]{
 padding: 5px 10px;
+}
+
+fieldset{
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    background-color:var(--medium);
+    border-color:  var(--dark);
+}
+legend{
+    color: var(--light);
+    background-color: var(--dark);
+    padding: 0px 25px;
+    border-radius: 3px;
 }
