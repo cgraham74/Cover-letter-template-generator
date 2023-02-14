@@ -1,132 +1,247 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Options</title>
-</head>
-<body>
-<h1>
-    Information for cover letter 
-</h1>
-<p>The information you provide is saved and used to generate your cover letters.</p>
-<h3>Signature Information</h3>
-<p>Enter information:</p>
-<label>
-   First name: 
-  <input type="text" id="firstname-el" placeholder="First name...">
-</label><br>
-<label>
-    Last name: 
-  <input type="text" id="lastname-el" placeholder="Last name...">
-</label><br>
-<label>
-    Phone:
-    <input type="text" id="mobile-el" placeholder="(000) 000-0000"> 
-  </label><br>
-  <label>
-    Email:
-    <input type="email" id="email-el" placeholder="YourName@YourEmail.com"> 
-  </label><br>
-  <label>
-    LinkedIn:
-    <input type="text" id="linkedin-el" placeholder="http://...">  
-  </label><br>
-  <label>
-    GitHub:
-    <input type="text" id="github-el" placeholder="http://...">
-  </label><br>
-  <label>
-    PortFolio:
-    <input type="text" id="portfolio-el" placeholder="http://...">  
-  </label><br>
-  <hr>
-  <h3>Employment Information</h3>
-  <p>Instructions for Currently employed:<br> selecting <em>Yes</em>
-     will include the sentence:<br> "While working <em>full time </em>or <em>part time</em> at <em>Company's name</em>"</p>
-  <label>
-    Currently Employed?
-    <select id="currently-employed">
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
-        </select>
-  </label><br>
-  <label>
-    Industry:
-    <input type="text" id="current-employer-industry-el" placeholder="Retail... Service... Construction...">
-  </label><br>
-  <label>
-    Employer:
-    <input type="text" id="current-employer-el" placeholder="Amazon... Denny's...">
-  </label><br>
-  <label>
-    years worked:
-    <input type="text" id="current-employer-years-el" placeholder="2...">
-  </label><br>
-  <label>
-    Job Type:
-    <select id="job-type-el">
-        <option value="fulltime">Full time</option>
-        <option value="parttime">Part time</option>
-        <option value="seasonal">Seasonal</option>
-    </select>
-  </label><br>
-  <h4>Transferable soft skills from employer</h4>
-  <label>
-    Soft skill 1:
-    <input type="text" id="softskill-one-el" placeholder="Time management...">
-  </label><br>
-  <label>
-    Soft skill 2:
-    <input type="text" id="softskill-two-el" placeholder="Organization...">
-  </label><br>
-  <label>
-    Soft skill 3:
-    <input type="text" id="softskill-three-el" placeholder="Problem-solving...">
-  </label><br>
-  <label>
-    Soft skill 4:
-    <input type="text" id="softskill-four-el" placeholder="Adaptability...">
-  </label><br>
-  <label>
-    Soft skill 5:
-    <input type="text" id="softskill-five-el" placeholder="Communication...">
-  </label><br>
-  <label>
-    Soft skill 6:
-    <input type="text" id="softskill-six-el" placeholder="Critical Thinking...">
-  </label><br>
-  <hr>
-  <h3>Project Information</h3>
-  <label>
-    Project name:
-    <input type="text" id="project-one-name-el" placeholder="Project name...">
-  </label><br>
-  <label>
-    Project 1 Description:
-    <input type="text" id="project-one-desc-el" placeholder="Description...">
-  </label><br>
-  <label>
-    Project name:
-    <input type="text" id="project-two-name-el" placeholder="Project name...">
-  </label><br>
-  <label>
-    Project 2 Description:
-    <input type="text" id="project-two-desc-el" placeholder="Description...">
-  </label><br>
-  Project name:
-  <input type="text" id="project-three-name-el" placeholder="Project name...">
-</label><br>
-<label>
-  Project 3 Description:
-  <input type="text" id="project-three-desc-el" placeholder="Description...">
-</label><br>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="options.css" />
+    <title>Options</title>
+  </head>
+  <body>
+    <h1>Information for cover letter</h1>
+    <p>
+      The information you provide is saved and used to generate your cover
+      letters.
+    </p>
+    <div id="container">
+      <section id="signature">
+        <fieldset class="fieldset-container">
+          <legend><h3>Signature Information</h3></legend>
 
+          <p>Enter information:</p>
+          <label for="firstname-el"> First name:</label>
+          <input
+            type="text"
+            id="firstname-el"
+            name="firstname-el"
+            class="text-input"
+            placeholder="First name..."
+          />
+          <br />
+          <label for="lastname-el"> Last name:</label>
+          <input
+            type="text"
+            id="lastname-el"
+            name="lastname-el"
+            class="text-input"
+            placeholder="Last name..."
+          />
+          <br />
+          <label for="mobile-el"> Phone:</label>
+          <input
+            type="text"
+            id="mobile-el"
+            name="mobile-el"
+            class="text-input"
+            placeholder="(000) 000-0000"
+          />
+          <br />
+          <label for="email-el"> Email:</label>
+          <input
+            type="email"
+            id="email-el"
+            name="email-el"
+            class="text-input"
+            placeholder="YourName@YourEmail.com"
+          />
+          <br />
+          <label for="linkedin-el"> LinkedIn:</label>
+          <input
+            type="url"
+            id="linkedin-el"
+            name="linkedin-el"
+            class="text-input"
+            placeholder="http://..."
+          />
+          <br />
+          <label for="github-el"> GitHub:</label>
+          <input
+            type="url"
+            id="github-el"
+            name="github-el"
+            class="text-input"
+            placeholder="http://..."
+          />
+          <br />
+          <label for="portfolio-el"> PortFolio:</label>
+          <input
+            type="url"
+            id="portfolio-el"
+            name="portfolio-el"
+            class="text-input"
+            placeholder="http://..."
+          />
+          <br />
+        </fieldset>
+      </section>
 
-<div id="status"></div>
-<button id="save-el" type="button">Save</button>
+      <section id="employment">
+        <fieldset class="fieldset-container">
+          <legend><h3>Employment Information</h3></legend>
 
-<script src="options.js"></script>
-</body>
+          <p>
+            Instructions for Currently employed:<br />
+            selecting <em>Yes</em> will include the sentence:<br />
+            "While working <em>full time </em>or <em>part time</em> at
+            <em>Company's name</em>"
+          </p>
+          <label for="currently-employed"> Currently Employed?</label>
+          <select id="currently-employed" name="currently-employed">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <br />
+          <label for="current-employer-industry-el"> Industry:</label>
+          <input
+            type="text"
+            id="current-employer-industry-el"
+            name="current-employer-industry-el"
+            placeholder="Retail... Service... Construction..."
+          />
+          <br />
+          <label for="current-employer-el"> Employer:</label>
+          <input
+            type="text"
+            id="current-employer-el"
+            name="current-employer-el"
+            placeholder="Amazon... Denny's..."
+          />
+          <br />
+          <label for="current-employer-years-el"> years worked:</label>
+          <input
+            type="number"
+            id="current-employer-years-el"
+            name="current-employer-years-el"
+            placeholder="2..."
+          />
+          <br />
+          <label for="job-type-el"> Job Type:</label>
+          <select id="job-type-el" name="job-type-el">
+            <option value="fulltime">Full time</option>
+            <option value="parttime">Part time</option>
+            <option value="seasonal">Seasonal</option>
+          </select>
+          <br />
+          <h4>Transferable soft skills from employer</h4>
+          <label for="softskill-one-el"> Soft skill 1:</label>
+          <input
+            type="text"
+            id="softskill-one-el"
+            name="softskill-one-el"
+            placeholder="Time management..."
+          />
+          <br />
+          <label for="softskill-two-el"> Soft skill 2:</label>
+          <input
+            type="text"
+            id="softskill-two-el"
+            name="softskill-two-el"
+            placeholder="Organization..."
+          />
+          <br />
+          <label for="softskill-three-el"> Soft skill 3:</label>
+          <input
+            type="text"
+            id="softskill-three-el"
+            name="softskill-three-el"
+            placeholder="Problem-solving..."
+          />
+          <br />
+          <label for="softskill-four-el"> Soft skill 4:</label>
+          <input
+            type="text"
+            id="softskill-four-el"
+            name="softskill-four-el"
+            placeholder="Adaptability..."
+          />
+          <br />
+          <label for="softskill-five-el"> Soft skill 5:</label>
+          <input
+            type="text"
+            id="softskill-five-el"
+            name="softskill-five-el"
+            placeholder="Communication..."
+          />
+          <br />
+          <label for="softskill-six-el"> Soft skill 6:</label>
+          <input
+            type="text"
+            id="softskill-six-el"
+            name="softskill-six-el"
+            placeholder="Critical Thinking..."
+          />
+          <br />
+        </fieldset>
+      </section>
+
+      <section id="projects">
+        <fieldset class="fieldset-container">
+          <legend><h3>Project Information</h3></legend>
+          <label for="project-one-name-el"> Project name: </label>
+          <input
+            type="text"
+            id="project-one-name-el"
+            name="project-one-name-el"
+            placeholder="Project name..."
+          />
+          <br />
+          <label for="project-one-desc-el"> Project 1 Description: </label>
+          <textarea
+            name="project-one-desc-el"
+            id="project-one-desc-el"
+            rows="5"
+            cols="50"
+            placeholder="Description..."
+          ></textarea>
+          <br />
+          <label for="project-two-name-el"> Project name: </label>
+          <input
+            type="text"
+            id="project-two-name-el"
+            name="project-two-name-el"
+            placeholder="Project name..."
+          />
+          <br />
+          <label for="project-two-desc-el"> Project 2 Description: </label>
+          <textarea
+            id="project-two-desc-el"
+            name="project-two-desc-el"
+            rows="5"
+            cols="50"
+            placeholder="Description..."
+          ></textarea>
+          <br />
+          <lable for="project-three-name-el"> Project name: </lable>
+          <input
+            type="text"
+            id="project-three-name-el"
+            name="project-three-name-el"
+            placeholder="Project name..."
+          />
+          <br />
+          <label for="project-three-desc-el"> Project 3 Description:</label>
+          <textarea
+            id="project-three-desc-el"
+            rows="5"
+            cols="50"
+            placeholder="Description..."
+            name="project-three-desc-el"
+          ></textarea>
+          <br />
+          <div id="status"></div>
+          <button id="save-el" type="button">Save</button>
+          <script src="options.js"></script>
+        </fieldset>
+      </section>
+    </div>
+  </body>
 </html>
