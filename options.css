@@ -1,44 +1,49 @@
-:root{
-    --dark:  #2F4858;
-    --medium: #e4eaee;
-    --light: whitesmoke;
+:root {
+  --dark: #2f4858;
+  --medium: #e4eaee;
+  --light: whitesmoke;
 }
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-body{
-    margin: 0 auto;
-    color: #0E161B;
-    font: 1.1em sans-serif;
+body {
+  margin: 0 auto;
+  color: #0e161b;
+  font: 1.1em sans-serif;
 }
-.blue{
-    --dark:  #2F4858;
-    --medium: #e4eaee;
-    --light: whitesmoke;
+.blue {
+  --dark: #2f4858;
+  --medium: #e4eaee;
+  --light: whitesmoke;
 }
-.purple{
-    --dark: #484462;
-    --medium:#dfdee4;
-    --light: #FFF0F0; 
+.purple {
+  --dark: #484462;
+  --medium: #dfdee4;
+  --light: #fff0f0;
 }
-button{
-    margin-top: 10px;
-    padding: 10px 20px;
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--dark);
+  color: var(--light);
+  border-color: var(--dark);
 }
-input, select, textarea{
-padding: 5px 10px;
+input,
+select,
+textarea {
+  padding: 5px 10px;
 }
 
-fieldset{
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    background-color:var(--medium);
-    border-color:  var(--dark);
+fieldset {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--medium);
+  border-color: var(--dark);
 }
-legend{
-    color: var(--light);
-    background-color: var(--dark);
-    padding: 0px 25px;
-    border-radius: 3px;
+legend {
+  color: var(--light);
+  background-color: var(--dark);
+  padding: 0px 25px;
+  border-radius: 3px;
 }
