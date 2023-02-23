@@ -1,8 +1,10 @@
-// import options from "./options";
+const dateEl = document.getElementById("date-el");
+const greetingEl = document.getElementById("greeting-el");
+const introEl = document.getElementById("intro-el");
 
 let companyName = "";
 let currentDate = "";
-let hiringManager = "";
+let hiringManager = "test";
 let jobTitle = "";
 let firstJobBullet = "";
 let secondJobBullet = "";
@@ -36,12 +38,10 @@ let userPortfolioLink = "";
 let userAspiringJob = "";
 let userTechStack = [];
 
-function getTemplateInfo() {
-  chrome.storage.local.get(["firstname"]).then((result) => {
-    console.log("Value currently is " + result.firstname);
-  });
-}
-getTemplateInfo();
+
+dateEl.textContent = getCurrentLocalDate();
+greetingEl.textContent = `Dear ${greeting()}`;
+
 function getCurrentLocalDate() {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
@@ -54,18 +54,19 @@ function getCurrentLocalDate() {
 function greeting() {
   return hiringManager ? hiringManager : companyName;
 }
-const templateCoverLetter = `
 
-${getCurrentLocalDate()}
+let templateCoverLetter = `
 
-Dear ${greeting()}:
+<p>${getCurrentLocalDate()}</p>
 
-I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
+<p>Dear ${greeting()}:/<p>
+
+<p>I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
 This is an exciting opportunity to work for ${companyName} because of the focus on ${firstJobBullet}, ${secondJobBullet}, and ${thirdJobBullet}. 
 With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
-I believe that I would be an excellent candidate for the role. 
+I believe that I would be an excellent candidate for the role. </p>
 
-While working ${
+<p>While working ${
   currentJob.fullOrPartTime
 }, I recently completed an accelerated, ${program} with Merit America. 
 As an aspiring ${userAspiringJob}, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
@@ -74,9 +75,9 @@ Git, and Design Patterns. In addition to conquering many individual assignments,
 opportunity to showcase my abilities by collaboratively building a ${
   projectOne.name
 } application, ${projectTwo.name} application, and most recently 
-a full-stack ${projectThree.name} application that ${projectThree.desc}.
+a full-stack ${projectThree.name} application that ${projectThree.desc}.</p>
 
-Prior to joining the Merit America program, I worked for over ${
+<p>Prior to joining the Merit America program, I worked for over ${
   currentJob.years
 } years in the ${currentJob.industry} industry.  
 Through this experience, I developed and refined ${
@@ -85,31 +86,34 @@ Through this experience, I developed and refined ${
   currentJob.softskills[1]
 } skills necessary to succeed in the ${jobTitle} role. 
 Changing careers is never easy, but my passion has always been with technology and I could not be more excited to pursue this 
-opportunity with ${companyName}.  
+opportunity with ${companyName}.</p>
 
-I hope that we can further discuss what value I can add to your team in an interview
+<p>I hope that we can further discuss what value I can add to your team in an interview</p>
 
-Regards,
+<p>Regards,</p>
 
-${userName}
-${userMobile}
-${userEmail}
-${userLinkedIn}
-${userGitHub}
-${userPortfolioLink}
+<p>${userName}</p>
+<p>${userMobile}</p>
+<p>${userEmail}</p>
+<p>${userLinkedIn}</p>
+<p>${userGitHub}</p>
+<p>${userPortfolioLink}</p>
 `;
 
-console.log(templateCoverLetter);
-chrome.storage.local.get(["firstname"]).then((result) => {
-  console.log("Value currently is " + result.key);
-});
+document.getElementById("get-el").addEventListener("click", getTemplateInfo());
 
-document.querySelector("#go-to-options").addEventListener("click", function () {
-  if (chrome.runtime.openOptionsPage) {
-    chrome.runtime.openOptionsPage();
-  } else {
-    window.open(chrome.runtime.getURL("options.html"));
-  }
-});
+function getTemplateInfo() {
+  chrome.storage.local.get(["firstname"]).then((result) => {
+    console.log("Value currently is " + result.firstname);
+    userName = result.firstname;
+    console.log("username: " + userName);
+  });
+}
+document
+  .getElementById("display-cover")
+  .addEventListener("click", displayCover());
 
-document.getElementById("get-el").addEventListener("click", getTemplateInfo);
+function displayCover() {
+  console.log(templateCoverLetter);
+  console.log("hello?");
+}
