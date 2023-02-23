@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "name": "Cover letter",
   "permissions": ["storage", "activeTab"],
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["index.js"]
-    }
-  ],
+
   "options_ui": {
     "page": "options.html",
     "open_in_tab": false
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.svg"
   }
 }
