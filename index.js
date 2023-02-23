@@ -1,53 +1,59 @@
-let companyName ="";
-let currentDate ="";
-let hiringManager ="";
+// import options from "./options";
+
+let companyName = "";
+let currentDate = "";
+let hiringManager = "";
 let jobTitle = "";
 let firstJobBullet = "";
 let secondJobBullet = "";
 let thirdJobBullet = "";
 let currentJob = {
-    companyName: "",
-    years: "",
-    fullOrPartTime: "",
-    industry: "",
-    softskills: [
-
-    ]
-}
+  companyName: "",
+  years: "",
+  fullOrPartTime: "",
+  industry: "",
+  softskills: [],
+};
 let projectOne = {
-    name: "",
-    desc: ""
-}
+  name: "",
+  desc: "",
+};
 let projectTwo = {
-    name: "",
-    desc: ""
-}
+  name: "",
+  desc: "",
+};
 let projectThree = {
-    name: "",
-    desc: ""
-}
+  name: "",
+  desc: "",
+};
 let program = "";
-let userName ="";
-let userMobile ="";
-let userEmail ="";
+let userName = "";
+let userMobile = "";
+let userEmail = "";
 let userLinkedIn = "";
 let userGitHub = "";
 let userPortfolioLink = "";
 let userAspiringJob = "";
 let userTechStack = [];
 
+function getTemplateInfo() {
+  chrome.storage.local.get(["firstname"]).then((result) => {
+    console.log("Value currently is " + result.firstname);
+  });
+}
+getTemplateInfo();
 function getCurrentLocalDate() {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-    const day = currentDate.getDate().toString().padStart(2, '0');
-    const localDate = `${month}/${day}/${year}`;
-    return localDate;
-  }
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+  const day = currentDate.getDate().toString().padStart(2, "0");
+  const localDate = `${month}/${day}/${year}`;
+  return localDate;
+}
 
-function greeting(){
-    return hiringManager ? hiringManager : companyName;
-}  
+function greeting() {
+  return hiringManager ? hiringManager : companyName;
+}
 const templateCoverLetter = `
 
 ${getCurrentLocalDate()}
@@ -59,15 +65,25 @@ This is an exciting opportunity to work for ${companyName} because of the focus 
 With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
 I believe that I would be an excellent candidate for the role. 
 
-While working ${currentJob.fullOrPartTime}, I recently completed an accelerated, ${program} with Merit America. 
+While working ${
+  currentJob.fullOrPartTime
+}, I recently completed an accelerated, ${program} with Merit America. 
 As an aspiring ${userAspiringJob}, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
 and web development with React using ES6 JavaScript. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
 Git, and Design Patterns. In addition to conquering many individual assignments, pair programming assignments, and algorithm problems, I had the 
-opportunity to showcase my abilities by collaboratively building a ${projectOne.name} application, ${projectTwo.name} application, and most recently 
+opportunity to showcase my abilities by collaboratively building a ${
+  projectOne.name
+} application, ${projectTwo.name} application, and most recently 
 a full-stack ${projectThree.name} application that ${projectThree.desc}.
 
-Prior to joining the Merit America program, I worked for over ${currentJob.years} years in the ${currentJob.industry} industry.  
-Through this experience, I developed and refined ${currentJob.softskills[0]} and ${currentJob.softskills[1]} skills necessary to succeed in the ${jobTitle} role. 
+Prior to joining the Merit America program, I worked for over ${
+  currentJob.years
+} years in the ${currentJob.industry} industry.  
+Through this experience, I developed and refined ${
+  currentJob.softskills[0]
+} and ${
+  currentJob.softskills[1]
+} skills necessary to succeed in the ${jobTitle} role. 
 Changing careers is never easy, but my passion has always been with technology and I could not be more excited to pursue this 
 opportunity with ${companyName}.  
 
@@ -83,5 +99,17 @@ ${userGitHub}
 ${userPortfolioLink}
 `;
 
+console.log(templateCoverLetter);
+chrome.storage.local.get(["firstname"]).then((result) => {
+  console.log("Value currently is " + result.key);
+});
 
-console.log(templateCoverLetter)
+document.querySelector("#go-to-options").addEventListener("click", function () {
+  if (chrome.runtime.openOptionsPage) {
+    chrome.runtime.openOptionsPage();
+  } else {
+    window.open(chrome.runtime.getURL("options.html"));
+  }
+});
+
+document.getElementById("get-el").addEventListener("click", getTemplateInfo);
