@@ -1,4 +1,5 @@
 :root {
+  --darker:#0e161b;
   --dark: #2f4858;
   --medium: #e4eaee;
   --light: whitesmoke;
@@ -8,9 +9,13 @@
 }
 body {
   margin: 0;
-  color: #0e161b;
+  color: var( --darker);
   font: 1.1em sans-serif;
  line-height: 1.5em;
+ 
+}
+header p{
+  padding: 0em .8em;
 }
 .blue {
   --dark: #2f4858;
@@ -29,6 +34,8 @@ button {
   color: var(--light);
   border-color: var(--dark);
   border-radius: 3px;
+  font: 1rem sans-serif;
+
 }
 input,
 select,
@@ -36,11 +43,22 @@ textarea {
   padding: .5em .625em;
 }
 
+select, textarea, input[type=text],input[type=email],input[type=url], input[type=number]  {
+
+  border: none;
+  border-bottom: 1px solid;
+}
+select:focus,textarea:focus, [type=text]:focus,input[type=email]:focus,input[type=url]:focus, input[type=number]:focus{
+  outline: none !important;
+  border: none;
+  box-shadow: 0px 3px 5px 0px var(--dark);
+  border-radius: 3px;
+}
+
 fieldset {
   margin: 1.25em auto;
   display: flex;
   flex-direction: column;
-  background-color: var(--medium);
   border: 5px solid var(--dark);
   border-left: none;
   border-right: none;
@@ -49,7 +67,7 @@ fieldset {
 legend {
   color: var(--light);
   background-color: var(--dark);
-  padding: 0em 1.56em;
+  padding: 0em 1.5em;
   border-radius: 3px;
 }
 
@@ -59,4 +77,7 @@ legend {
 .cover-container{
   margin: 0 auto;
   padding: .5em;
+}
+section{
+  margin-bottom: 2.5em;
 }

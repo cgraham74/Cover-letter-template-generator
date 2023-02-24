@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "version": "1.0.0",
   "name": "Cover letter",
-  "permissions": ["storage", "activeTab"],
+  "permissions": ["storage"],
 
   "options_ui": {
     "page": "options.html",
