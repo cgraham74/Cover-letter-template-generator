@@ -17,12 +17,13 @@
       </header>
       <div id="main-cover-container">
         <main>
+          <form>
           <section id="signature">
             <fieldset class="fieldset-container">
-              <legend><h3>Signature Data</h3></legend>
+              <legend><h3>Signature</h3></legend>
 
               <p>Enter information:</p>
-              
+
               <label for="firstname-el"> First name:</label>
               <input
                 type="text"
@@ -95,7 +96,7 @@
 
           <section id="employment">
             <fieldset class="fieldset-container">
-              <legend><h3>Employment Data</h3></legend>
+              <legend><h3>Employment</h3></legend>
 
               <p>
                 Instructions for Currently employed:<br />
@@ -194,7 +195,7 @@
 
           <section id="projects">
             <fieldset class="fieldset-container">
-              <legend><h3>Project Data</h3></legend>
+              <legend><h3>Projects</h3></legend>
               <label for="project-one-name-el"> Project name: </label>
               <input
                 type="text"
@@ -248,9 +249,14 @@
               <br />
             </fieldset>
           </section>
+          <div class="btn-container">
+              <button id="save-el" type="button">Save</button>
+           <button id="get-el" type="button">Get info</button>
+          </div>
+         
+        </form>
           <div id="status"></div>
-          <button id="save-el" type="button">Save</button>
-          <button id="get-el" type="button">Get info</button>
+          
           <script src="options.js"></script>
         </main>
       </div>

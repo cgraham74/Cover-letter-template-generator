@@ -1,8 +1,11 @@
 :root {
   --darker:#0e161b;
-  --dark: #2f4858;
-  --medium: #e4eaee;
+  --dark: #3a459a;
+  --accent: #3a9a8f;
+  --medium: #3a759a;
   --light: whitesmoke;
+  --gradient-tones:to bottom right, #3a759a, #005287;
+  --gradient-tones-accent:to bottom right, #3a9a8f, #005287;
 }
 * {
   box-sizing: border-box;
@@ -11,47 +14,42 @@ body {
   margin: 0;
   color: var( --darker);
   font: 1.1em sans-serif;
- line-height: 1.5em;
- 
+  line-height: 1.5em;
 }
 header p{
   padding: 0em .8em;
 }
-.blue {
-  --dark: #2f4858;
-  --medium: #e4eaee;
-  --light: whitesmoke;
-}
-.purple {
-  --dark: #484462;
-  --medium: #dfdee4;
-  --light: #fff0f0;
-}
+
 button {
+  display: block;
+  width: 100%;
   margin-top: .625em; /* 10px */
   padding: .625em 1.25em; /* 10px 20px */
-  background-color: var(--dark);
+  background-image: linear-gradient(var(--gradient-tones));
   color: var(--light);
-  border-color: var(--dark);
+  border:none;
   border-radius: 3px;
   font: 1rem sans-serif;
-
+  cursor: pointer;
+}
+button:active{
+  background-image: linear-gradient(var(--gradient-tones-accent));
 }
 input,
 select,
 textarea {
-  padding: .5em .625em;
+  padding: 1em .9em;
 }
 
 select, textarea, input[type=text],input[type=email],input[type=url], input[type=number]  {
-
   border: none;
   border-bottom: 1px solid;
+  cursor: pointer;
 }
 select:focus,textarea:focus, [type=text]:focus,input[type=email]:focus,input[type=url]:focus, input[type=number]:focus{
   outline: none !important;
   border: none;
-  box-shadow: 0px 3px 5px 0px var(--dark);
+  box-shadow: 0px 3px 5px 0px var(--medium);
   border-radius: 3px;
 }
 
@@ -59,7 +57,7 @@ fieldset {
   margin: 1.25em auto;
   display: flex;
   flex-direction: column;
-  border: 5px solid var(--dark);
+  border: 5px solid var(--medium);
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -67,6 +65,8 @@ fieldset {
 legend {
   color: var(--light);
   background-color: var(--dark);
+  background-image: linear-gradient(var(--gradient-tones));
+  
   padding: 0em 1.5em;
   border-radius: 3px;
 }
@@ -75,9 +75,16 @@ legend {
   text-align: center;
 }
 .cover-container{
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: .5em;
 }
 section{
   margin-bottom: 2.5em;
+}
+.btn-container{
+  display: flex;
+  justify-content:center;
+  gap: .2em;
 }
