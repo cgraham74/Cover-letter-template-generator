@@ -18,245 +18,266 @@
       <div id="main-cover-container">
         <main>
           <form>
-          <section id="signature">
-            <fieldset class="fieldset-container">
-              <legend><h3>Signature</h3></legend>
+            <section id="signature">
+              <fieldset class="fieldset-container">
+                <legend><h3>Signature</h3></legend>
 
-              <p>Enter information:</p>
+                <p>Enter information:</p>
 
-              <label for="firstname-el"> First name:</label>
-              <input
-                type="text"
-                id="firstname-el"
-                name="firstname-el"
-                class="text-input"
-                placeholder="First name..."
-                required
-              />
-              <br />
-              <label for="lastname-el"> Last name:</label>
-              <input
-                type="text"
-                id="lastname-el"
-                name="lastname-el"
-                class="text-input"
-                placeholder="Last name..."
-                required
-              />
-              <br />
-              <label for="mobile-el"> Phone:</label>
-              <input
-                type="text"
-                id="mobile-el"
-                name="mobile-el"
-                class="text-input"
-                placeholder="(000) 000-0000"
-                required
-              />
-              <br />
-              <label for="email-el"> Email:</label>
-              <input
-                type="email"
-                id="email-el"
-                name="email-el"
-                class="text-input"
-                placeholder="YourName@YourEmail.com"
-                required
-              />
-              <br />
-              <label for="linkedin-el"> LinkedIn:</label>
-              <input
-                type="url"
-                id="linkedin-el"
-                name="linkedin-el"
-                class="text-input"
-                placeholder="http://..."
-              />
-              <br />
-              <label for="github-el"> GitHub:</label>
-              <input
-                type="url"
-                id="github-el"
-                name="github-el"
-                class="text-input"
-                placeholder="http://..."
-              />
-              <br />
-              <label for="portfolio-el"> PortFolio:</label>
-              <input
-                type="url"
-                id="portfolio-el"
-                name="portfolio-el"
-                class="text-input"
-                placeholder="http://..."
-              />
-              <br />
-            </fieldset>
-          </section>
+                <input
+                  type="text"
+                  id="firstname-el"
+                  name="firstname-el"
+                  class="text-input"
+                  placeholder="First name..."
+                  aria-label="First name"
+                  required
+                />
+                <br />
 
-          <section id="employment">
-            <fieldset class="fieldset-container">
-              <legend><h3>Employment</h3></legend>
+                <input
+                  type="text"
+                  id="lastname-el"
+                  name="lastname-el"
+                  class="text-input"
+                  placeholder="Last name..."
+                  aria-label="Last name"
+                  required
+                />
+                <br />
 
-              <p>
-                Instructions for Currently employed:<br />
-                selecting <em>Yes</em> will include the sentence:<br />
-                "While working <em>full time </em>or <em>part time</em> at
-                <em>Company's name</em>"
-              </p>
-              <label for="currently-employed"> Currently Employed?</label>
-              <select id="currently-employed" name="currently-employed">
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
-              <br />
-              <label for="current-employer-industry-el"> Industry:</label>
-              <input
-                type="text"
-                id="current-employer-industry-el"
-                name="current-employer-industry-el"
-                placeholder="Retail... Service... Construction..."
-              />
-              <br />
-              <label for="current-employer-el"> Employer:</label>
-              <input
-                type="text"
-                id="current-employer-el"
-                name="current-employer-el"
-                placeholder="Amazon... Denny's..."
-              />
-              <br />
-              <label for="current-employer-years-el"> years worked:</label>
-              <input
-                type="number"
-                id="current-employer-years-el"
-                name="current-employer-years-el"
-                placeholder="2..."
-              />
-              <br />
-              <label for="job-type-el"> Job Type:</label>
-              <select id="job-type-el" name="job-type-el">
-                <option value="fulltime">Full time</option>
-                <option value="parttime">Part time</option>
-                <option value="seasonal">Seasonal</option>
-              </select>
-              <br />
-              <h4>Transferable soft skills from employer</h4>
-              <label for="softskill-one-el"> Soft skill 1:</label>
-              <input
-                type="text"
-                id="softskill-one-el"
-                name="softskill-one-el"
-                placeholder="Time management..."
-              />
-              <br />
-              <label for="softskill-two-el"> Soft skill 2:</label>
-              <input
-                type="text"
-                id="softskill-two-el"
-                name="softskill-two-el"
-                placeholder="Organization..."
-              />
-              <br />
-              <label for="softskill-three-el"> Soft skill 3:</label>
-              <input
-                type="text"
-                id="softskill-three-el"
-                name="softskill-three-el"
-                placeholder="Problem-solving..."
-              />
-              <br />
-              <label for="softskill-four-el"> Soft skill 4:</label>
-              <input
-                type="text"
-                id="softskill-four-el"
-                name="softskill-four-el"
-                placeholder="Adaptability..."
-              />
-              <br />
-              <label for="softskill-five-el"> Soft skill 5:</label>
-              <input
-                type="text"
-                id="softskill-five-el"
-                name="softskill-five-el"
-                placeholder="Communication..."
-              />
-              <br />
-              <label for="softskill-six-el"> Soft skill 6:</label>
-              <input
-                type="text"
-                id="softskill-six-el"
-                name="softskill-six-el"
-                placeholder="Critical Thinking..."
-              />
-              <br />
-            </fieldset>
-          </section>
+                <input
+                  type="text"
+                  id="mobile-el"
+                  name="mobile-el"
+                  class="text-input"
+                  placeholder="(000) 000-0000"
+                  aria-label="Phone Number"
+                  required
+                />
+                <br />
 
-          <section id="projects">
-            <fieldset class="fieldset-container">
-              <legend><h3>Projects</h3></legend>
-              <label for="project-one-name-el"> Project name: </label>
-              <input
-                type="text"
-                id="project-one-name-el"
-                name="project-one-name-el"
-                placeholder="Project name..."
-              />
-              <br />
-              <label for="project-one-desc-el"> Project 1 Description: </label>
-              <textarea
-                name="project-one-desc-el"
-                id="project-one-desc-el"
-                rows="5"
-                cols="25"
-                placeholder="Description..."
-              ></textarea>
-              <br />
-              <label for="project-two-name-el"> Project name: </label>
-              <input
-                type="text"
-                id="project-two-name-el"
-                name="project-two-name-el"
-                placeholder="Project name..."
-              />
-              <br />
-              <label for="project-two-desc-el"> Project 2 Description: </label>
-              <textarea
-                id="project-two-desc-el"
-                name="project-two-desc-el"
-                rows="5"
-                cols="25"
-                placeholder="Description..."
-              ></textarea>
-              <br />
-              <lable for="project-three-name-el"> Project name: </lable>
-              <input
-                type="text"
-                id="project-three-name-el"
-                name="project-three-name-el"
-                placeholder="Project name..."
-              />
-              <br />
-              <label for="project-three-desc-el"> Project 3 Description:</label>
-              <textarea
-                id="project-three-desc-el"
-                rows="5"
-                cols="25"
-                placeholder="Description..."
-                name="project-three-desc-el"
-              ></textarea>
-              <br />
-            </fieldset>
-          </section>
-          <div class="btn-container">
-              <button id="save-el" type="button">Save</button>
-           <button id="get-el" type="button">Get info</button>
-          </div>
-         
-        </form>
+                <input
+                  type="email"
+                  id="email-el"
+                  name="email-el"
+                  class="text-input"
+                  placeholder="YourName@YourEmail.com"
+                  aria-label="Email"
+                  required
+                />
+                <br />
+
+                <input
+                  type="url"
+                  id="linkedin-el"
+                  name="linkedin-el"
+                  class="text-input"
+                  placeholder="https://www.linkedin.com/in/..."
+                  aria-label="LinkedIn Url"
+                />
+                <br />
+
+                <input
+                  type="url"
+                  id="github-el"
+                  name="github-el"
+                  class="text-input"
+                  placeholder="https://github.com/..."
+                  aria-label="GitHub Url"
+                />
+                <br />
+
+                <input
+                  type="url"
+                  id="portfolio-el"
+                  name="portfolio-el"
+                  class="text-input"
+                  placeholder="http://Your Portfolio..."
+                  aria-label="Portfolio Url"
+                />
+                <br />
+              </fieldset>
+            </section>
+
+            <section id="employment">
+              <fieldset class="fieldset-container">
+                <legend><h3>Employment</h3></legend>
+
+                <p>
+                  Instructions for Currently employed:<br />
+                  selecting <em>Yes</em> will include the sentence:<br />
+                  "While working <em>full time </em>or <em>part time</em> at
+                  <em>Company's name</em>"
+                </p>
+                <label for="currently-employed"> Currently Employed?</label>
+                <select id="currently-employed" name="currently-employed">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+                <br />
+                <label for="job-type-el"> Job Type:</label>
+                <select id="job-type-el" name="job-type-el">
+                  <option value="fulltime">Full time</option>
+                  <option value="parttime">Part time</option>
+                  <option value="seasonal">Seasonal</option>
+                </select>
+                <br />
+                <input
+                  type="text"
+                  id="current-employer-el"
+                  name="current-employer-el"
+                  placeholder="Employer's Name..."
+                  aria-label="Employer Name"
+                />
+                <br />
+                <input
+                  type="text"
+                  id="current-employer-industry-el"
+                  name="current-employer-industry-el"
+                  placeholder="Industry? Example: Retail... Service... Construction..."
+                  aria-label="Industry"
+                />
+                <br />
+
+                <input
+                  type="number"
+                  id="current-employer-years-el"
+                  name="current-employer-years-el"
+                  placeholder="Employment length..."
+                  aria-label="Employment length"
+                />
+
+                <br />
+                <h4>Transferable soft skills</h4>
+                <p>List up to 6 soft skills learned during this employment.</p>
+                <input
+                  type="text"
+                  id="softskill-one-el"
+                  name="softskill-one-el"
+                  placeholder="Soft skill..."
+                  aria-label="Soft skill 1"
+                />
+                <br />
+
+                <input
+                  type="text"
+                  id="softskill-two-el"
+                  name="softskill-two-el"
+                  placeholder="Soft skill 2..."
+                  aria-label="Soft skill 2"
+                />
+                <br />
+
+                <input
+                  type="text"
+                  id="softskill-three-el"
+                  name="softskill-three-el"
+                  placeholder="Soft skill 3..."
+                  aria-label="Soft skill 3"
+                />
+                <br />
+
+                <input
+                  type="text"
+                  id="softskill-four-el"
+                  name="softskill-four-el"
+                  placeholder="Soft skill 4..."
+                  aria-label="Soft skill 4"
+                />
+                <br />
+
+                <input
+                  type="text"
+                  id="softskill-five-el"
+                  name="softskill-five-el"
+                  placeholder="Soft skill 5..."
+                  aria-label="Soft skill 5"
+                />
+                <br />
+
+                <input
+                  type="text"
+                  id="softskill-six-el"
+                  name="softskill-six-el"
+                  placeholder="Soft skill 6..."
+                  aria-label="Soft skill 6"
+                />
+                <br />
+              </fieldset>
+            </section>
+
+            <section id="projects">
+              <fieldset class="fieldset-container">
+                <legend><h3>Projects</h3></legend>
+
+                <input
+                  type="text"
+                  id="project-one-name-el"
+                  name="project-one-name-el"
+                  placeholder="First project name..."
+                  aria-label="Project name 1"
+                />
+                <br />
+
+                <textarea
+                  name="project-one-desc-el"
+                  id="project-one-desc-el"
+                  rows="5"
+                  cols="25"
+                  placeholder="Description..."
+                  aria-label="Project 1 Description"
+                ></textarea>
+                <br />
+
+                <input
+                  type="text"
+                  id="project-two-name-el"
+                  name="project-two-name-el"
+                  placeholder="Second project name..."
+                  aria-label="Project name 2"
+                />
+                <br />
+
+                <textarea
+                  id="project-two-desc-el"
+                  name="project-two-desc-el"
+                  rows="5"
+                  cols="25"
+                  placeholder="Description..."
+                  aria-label="Project 2 Description"
+                ></textarea>
+                <br />
+
+                <input
+                  type="text"
+                  id="project-three-name-el"
+                  name="project-three-name-el"
+                  placeholder="Third project name..."
+                  aria-label="Project name 3"
+                />
+                <br />
+
+                <textarea
+                  id="project-three-desc-el"
+                  rows="5"
+                  cols="25"
+                  placeholder="Description..."
+                  name="project-three-desc-el"
+                  aria-label="Project 3 Description"
+                ></textarea>
+                <br />
+              </fieldset>
+            </section>
+            <div class="btn-container">
+              <button id="save-el" type="button" aria-label="save">Save</button>
+              <button id="get-el" type="button" aria-label="get information">
+                Get info
+              </button>
+            </div>
+          </form>
           <div id="status"></div>
-          
+
           <script src="options.js"></script>
         </main>
       </div>
