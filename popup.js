@@ -1,95 +1,12 @@
-const dateEl = document.getElementById("date-el");
-const greetingEl = document.getElementById("greeting-el");
-const introEl = document.getElementById("intro-el");
-const currentSkillsEl = document.getElementById("current-skills-el");
-const workHistoryEl = document.getElementById("work-history-el");
-const closingEl = document.getElementById("closing-el");
-const signatureEl = document.getElementById("signature-el");
-const userNameEl = document.getElementById("user-name-el");
-const userMobileEl = document.getElementById("user-mobile-el");
-const userEmailEl = document.getElementById("user-email-el");
-const userLinkedinEl = document.getElementById("user-linkedin-el");
-const userGithubEl = document.getElementById("user-github-el");
-const userPortfolioEl = document.getElementById("user-portfolio-el");
-
-let companyName = "";
-let currentDate = "";
-let hiringManager = "test";
-let jobTitle = "";
-let firstJobBullet = "";
-let secondJobBullet = "";
-let thirdJobBullet = "";
-let currentJob = {
-  companyName: "",
-  years: "",
-  fullOrPartTime: "",
-  industry: "",
-  softskills: [],
-};
-let projectOne = {
-  name: "",
-  desc: "",
-};
-let projectTwo = {
-  name: "",
-  desc: "",
-};
-let projectThree = {
-  name: "",
-  desc: "",
-};
-let program = "";
-let userName = "";
-let userMobile = "";
-let userEmail = "";
-let userLinkedIn = "";
-let userGitHub = "";
-let userPortfolioLink = "";
-let userAspiringJob = "";
-let userTechStack = [];
-
-dateEl.textContent = getCurrentLocalDate();
-greetingEl.textContent = `Dear ${greeting()}`;
-introEl.textContent = `
-
-I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
-This is an exciting opportunity to work for ${companyName} because of the focus on ${firstJobBullet}, ${secondJobBullet}, and ${thirdJobBullet}. 
-With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
-I believe that I would be an excellent candidate for the role. 
-
-`;
-currentSkillsEl.textContent = `
-
-While working ${currentJob.fullOrPartTime}, I recently completed an accelerated, ${program} with Merit America. 
-  As an aspiring ${userAspiringJob}, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
-  and web development with React using ES6 JavaScript. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
-  Git, and Design Patterns. In addition to conquering many individual assignments, pair programming assignments, and algorithm problems, I had the 
-  opportunity to showcase my abilities by collaboratively building a ${projectOne.name} application, ${projectTwo.name} application, and most recently 
-  a full-stack ${projectThree.name} application that ${projectThree.desc}.
-`;
-
-workHistoryEl.textContent = `
-Prior to joining the Merit America program, I worked for over ${currentJob.years} years in the ${currentJob.industry} industry.  
-  Through this experience, I developed and refined ${currentJob.softskills[0]} and ${currentJob.softskills[1]} skills necessary to succeed in the ${jobTitle} role. 
-  Changing careers is never easy, but my passion has always been with technology and I could not be more excited to pursue this 
-  opportunity with ${companyName}.
-`;
-
-closingEl.textContent = `
-I hope that we can further discuss what value I can add to your team in an interview.
-`;
-signatureEl.textContent = `
-Regards,
-`;
-
-userNameEl.textContent = `${userName}`;
-userMobileEl.textContent = `${userMobile}`;
-userNameEl.textContent = `${userEmail}`;
-userLinkedinEl.textContent = `${userLinkedIn}`;
-userGithubEl.textContent = `${userGitHub}`;
-userPortfolioEl.textContent = `${userPortfolioLink}`;
-
-console.log({userName})
+// let currentDate = getCurrentLocalDate();
+let hiringManager = "Dummy data hiring manager";
+let jobTitle = "Dummy data job title";
+let firstJobBullet = "Dummy data bullet";
+let secondJobBullet = "Dummy data bullet";
+let thirdJobBullet = "Dummy data bullet";
+let companyName = "Dummy data company";
+let userAspiringJob = "SWE";
+let program = "Dummy data program";
 function getCurrentLocalDate() {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
@@ -102,15 +19,157 @@ function getCurrentLocalDate() {
 function greeting() {
   return hiringManager ? hiringManager : companyName;
 }
+let currentemployer = "";
+let currentlyEmployed = "";
+let years = "";
+let jobType = "";
+let industry = "";
+let softSkillOne = "";
+let softSkillTwo = "";
+let softSkillThree = "";
+let softSkillFour = "";
+let softSkillFive = "";
+let softSkillSix = "";
 
+let projectOne = {
+  name: "",
+  desc: "",
+};
+
+let projectTwo = {
+  name: "",
+  desc: "",
+};
+
+let projectThree = {
+  name: "",
+  desc: "",
+};
+
+let userName = "";
+let userMobile = "";
+let userEmail = "";
+let userLinkedIn = "";
+let userGitHub = "";
+let userPortfolioLink = "";
 document.getElementById("get-el").addEventListener("click", function () {
-  chrome.storage.local.get(["firstname"]).then((result) => {
-    console.log("Value currently is " + result.firstname);
-    userName = result.firstname;
-    console.log("username: " + userName);
-  });
+  chrome.storage.local
+    .get([
+      "firstname",
+      "lastname",
+      "mobile",
+      "email",
+      "linkedin",
+      "github",
+      "portfolio",
+      "currentlyemployed",
+      "currentemployer",
+      "currentemployeryears",
+      "currentemployerindustry",
+      "jobtype",
+      "softskillone",
+      "softskilltwo",
+      "softskillthree",
+      "softskillfour",
+      "softskillfive",
+      "softskillsix",
+      "currentlyemployed",
+      "projectonename",
+      "projectonedesc",
+      "projecttwoname",
+      "projecttwodesc",
+      "projectthreename",
+      "projectthreedesc",
+    ])
+    .then((result) => {
+      currentlyEmployed = result.currentlyemployed;
+
+      currentemployer = result.currentemployer;
+      years = result.currentemployeryears;
+      jobType = result.jobtype;
+      industry = result.currentemployerindustry;
+
+      softSkillOne = result.softskillone;
+      softSkillTwo = result.softskilltwo;
+      softSkillThree = result.softskillthree;
+      softSkillFour = result.softskillfour;
+      softSkillFive = result.softskillfive;
+      softSkillSix = result.softskillsix;
+
+      projectOne.name = result.projectonename;
+      projectOne.desc = result.projectonedesc;
+
+      projectTwo.name = result.projecttwoname;
+      projectTwo.desc = result.projecttwodesc;
+
+      projectThree.name = result.projectthreename;
+      projectTwo.desc = result.projectthreedesc;
+
+      userName = result.firstname + " " + result.lastname;
+      userMobile = result.mobile;
+      userEmail = result.email;
+      userLinkedIn = result.linkedin;
+      userGitHub = result.github;
+      userPortfolioLink = result.portfolio;
+      console.log("username: " + userName);
+      console.log("current/softskill1: " + softSkillOne);
+      console.log("current/softskill2: " + softSkillTwo);
+      console.log("current/softskill3: " + softSkillThree);
+      console.log("current/softskill4: " + softSkillFour);
+      console.log("current/softskill5: " + softSkillFive);
+      console.log("current/softskill6: " + softSkillSix);
+      console.log("currentemployer: " + currentemployer);
+      console.log("years: " + years);
+      console.log("jobType: " + jobType);
+      console.log("industry: " + industry);
+      console.log("projectOne: " + projectOne.name);
+      console.log("projectTwo: " + projectTwo.name);
+      console.log("projectThree: " + projectThree.name);
+      console.log("program: " + program);
+      console.log("userMobile: " + userMobile);
+      console.log("userLinkedIn: " + userLinkedIn);
+      console.log("userGitHub: " + userGitHub);
+      console.log("userPortfolioLink: " + userPortfolioLink);
+      console.log("userEmail: " + userEmail);
+      console.log("currentlyEmployed: " + currentlyEmployed);
+    });
 });
 
 document.getElementById("display-cover").addEventListener("click", function () {
-  console.log("hello?");
+  renderCoverLetter();
 });
+
+function renderCoverLetter() {
+  document.getElementById(
+    "cover-letter-container"
+  ).innerHTML = `<p id="date-el">${getCurrentLocalDate()}</p>
+  <p id="greeting-el">Dear ${greeting()}</p>
+  <p id="intro-el">I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
+  This is an exciting opportunity to work for ${companyName} because of the focus on ${firstJobBullet}, ${secondJobBullet}, and ${thirdJobBullet}. 
+  With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
+  I believe that I would be an excellent candidate for the role.</p>
+
+  <p id="current-skills-el">While working ${jobType}, I recently completed an accelerated, ${program} with Merit America. 
+  As an aspiring ${userAspiringJob}, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
+  and web development with React using ES6 JavaScript. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
+  Git, and Design Patterns. In addition to conquering many individual assignments, pair programming assignments, and algorithm problems, I had the 
+  opportunity to showcase my abilities by collaboratively building a ${
+    projectOne.name
+  } application, ${projectTwo.name} application, and most recently 
+  a full-stack ${projectThree.name} application that ${projectThree.desc}.</p>
+
+
+  <p id="work-history-el">Prior to joining the Merit America program, I worked for over ${years} years in the ${industry} industry.  
+  Through this experience, I developed and refined ${softSkillOne} and ${softSkillTwo} skills necessary to succeed in the ${jobTitle} role. 
+  Changing careers is never easy, but my passion has always been technology and I could not be more excited to pursue this 
+  opportunity with ${companyName}.</p>
+
+  <p id="closing-el">I hope that we can further discuss what value I can add to your team in an interview.</p>
+  <p id="signature-el">Regards,</p>
+  <p id="user-name-el" class="signature">${userName}</p>
+  <p id="user-mobile-el" class="signature">${userMobile}</p>
+  <p id="user-email-el" class="signature">${userEmail}</p>
+  <p id="user-linkedin-el" class="signature">${userLinkedIn}</p>
+  <p id="user-github-el" class="signature">${userGitHub}</p>
+  <p id="user-portfolio-el" class="signature">${userPortfolioLink}</p>`;
+}

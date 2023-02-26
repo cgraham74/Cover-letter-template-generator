@@ -6,23 +6,23 @@ const fields = [
   { id: "linkedin-el", key: "linkedin" },
   { id: "github-el", key: "github" },
   { id: "portfolio-el", key: "portfolio" },
-  { id: "current-employer-el", key: "currentEmployer" },
-  { id: "current-employer-years-el", key: "currentEmployerYears" },
-  { id: "current-employer-industry-el", key: "currentEmployerIndustry" },
-  { id: "job-type-el", key: "jobType" },
-  { id: "softskill-one-el", key: "softskillOne" },
-  { id: "softskill-two-el", key: "softskillTwo" },
-  { id: "softskill-three-el", key: "softskillThree" },
-  { id: "softskill-four-el", key: "softskillFour" },
-  { id: "softskill-five-el", key: "softskillFive" },
-  { id: "softskill-six-el", key: "softskillSix" },
-  { id: "currently-employed", key: "currentlyEmployed" },
-  { id: "project-one-name-el", key: "projectOneName" },
-  { id: "project-one-desc-el", key: "projectOneDesc" },
-  { id: "project-two-name-el", key: "projectTwoName" },
-  { id: "project-two-desc-el", key: "projectTwoDesc" },
-  { id: "project-three-name-el", key: "projectThreeName" },
-  { id: "project-three-desc-el", key: "projectThreeDesc" },
+  { id: "current-employer-el", key: "currentemployer" },
+  { id: "current-employer-years-el", key: "currentemployeryears" },
+  { id: "current-employer-industry-el", key: "currentemployerindustry" },
+  { id: "job-type-el", key: "jobtype" },
+  { id: "softskill-one-el", key: "softskillone" },
+  { id: "softskill-two-el", key: "softskilltwo" },
+  { id: "softskill-three-el", key: "softskillthree" },
+  { id: "softskill-four-el", key: "softskillfour" },
+  { id: "softskill-five-el", key: "softskillfive" },
+  { id: "softskill-six-el", key: "softskillsix" },
+  { id: "currently-employed", key: "currentlyemployed" },
+  { id: "project-one-name-el", key: "projectonename" },
+  { id: "project-one-desc-el", key: "projectonedesc" },
+  { id: "project-two-name-el", key: "projecttwoname" },
+  { id: "project-two-desc-el", key: "projecttwodesc" },
+  { id: "project-three-name-el", key: "projectthreename" },
+  { id: "project-three-desc-el", key: "projectthreedesc" },
 ];
 
 function save_options() {
@@ -35,9 +35,54 @@ function save_options() {
 }
 
 function getTemplateInfo() {
-  chrome.storage.local.get(["firstname"]).then((result) => {
-    console.log("Value currently is " + result.firstname);
-  });
+  chrome.storage.local
+    .get([
+      "firstname",
+      "lastname",
+      "mobile",
+      "email",
+      "linkedin",
+      "github",
+      "portfolio",
+      "currentlyemployed",
+      "currentemployer",
+      "currentemployeryears",
+      "currentemployerindustry",
+      "jobtype",
+      "softskillone",
+      "softskilltwo",
+      "softskillthree",
+      "softskillfour",
+      "softskillfive",
+      "softskillsix",
+      "projectonename",
+      "projectonedesc",
+      "projecttwoname",
+      "projecttwodesc",
+      "projectthreename",
+      "projectthreedesc",
+    ])
+    .then((result) => {
+      console.log("Firstname " + result.firstname);
+      console.log("Lastname: " + result.lastname);
+      console.log("current/softskill1: " + result.softskillone);
+      console.log("current/softskill2: " + result.softskilltwo);
+      console.log("current/softskill3: " + result.softskillthree);
+      console.log("current/softskill4: " + result.softskillfour);
+      console.log("current/softskill5: " + result.softskillfive);
+      console.log("current/softskill6: " + result.softskillsix);
+      console.log("currentemployer: " + result.currentemployer);
+      console.log("projectOne: " + result.projectonename);
+      console.log("projectTwo: " + result.projecttwoname);
+      console.log("projectThree: " + result.projectthreename);
+      console.log("JOb type" + result.jobtype);
+      console.log("userMobile: " + result.mobile);
+      console.log("userLinkedIn: " + result.linkedin);
+      console.log("userGitHub: " + result.github);
+      console.log("userPortfolioLink: " + result.portfolio);
+      console.log("userEmail: " + result.email);
+      console.log("currentlyEmployed: " + result.currentlyemployed);
+    });
 }
 
 // document.addEventListener("DOMContentLoaded", restore_options);
