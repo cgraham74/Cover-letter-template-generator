@@ -72,7 +72,6 @@ chrome.storage.local
     "softskillfour",
     "softskillfive",
     "softskillsix",
-    "currentlyemployed",
     "projectonename",
     "projectonedesc",
     "projecttwoname",
