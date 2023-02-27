@@ -1,4 +1,3 @@
-// let currentDate = getCurrentLocalDate();
 let hiringManager = "Dummy data hiring manager";
 let jobTitle = "Dummy data job title";
 let firstJobBullet = "Dummy data bullet";
@@ -52,92 +51,68 @@ let userEmail = "";
 let userLinkedIn = "";
 let userGitHub = "";
 let userPortfolioLink = "";
-document.getElementById("get-el").addEventListener("click", function () {
-  chrome.storage.local
-    .get([
-      "firstname",
-      "lastname",
-      "mobile",
-      "email",
-      "linkedin",
-      "github",
-      "portfolio",
-      "currentlyemployed",
-      "currentemployer",
-      "currentemployeryears",
-      "currentemployerindustry",
-      "jobtype",
-      "softskillone",
-      "softskilltwo",
-      "softskillthree",
-      "softskillfour",
-      "softskillfive",
-      "softskillsix",
-      "currentlyemployed",
-      "projectonename",
-      "projectonedesc",
-      "projecttwoname",
-      "projecttwodesc",
-      "projectthreename",
-      "projectthreedesc",
-    ])
-    .then((result) => {
-      currentlyEmployed = result.currentlyemployed;
 
-      currentemployer = result.currentemployer;
-      years = result.currentemployeryears;
-      jobType = result.jobtype;
-      industry = result.currentemployerindustry;
+chrome.storage.local
+  .get([
+    "firstname",
+    "lastname",
+    "mobile",
+    "email",
+    "linkedin",
+    "github",
+    "portfolio",
+    "currentlyemployed",
+    "currentemployer",
+    "currentemployeryears",
+    "currentemployerindustry",
+    "jobtype",
+    "softskillone",
+    "softskilltwo",
+    "softskillthree",
+    "softskillfour",
+    "softskillfive",
+    "softskillsix",
+    "currentlyemployed",
+    "projectonename",
+    "projectonedesc",
+    "projecttwoname",
+    "projecttwodesc",
+    "projectthreename",
+    "projectthreedesc",
+  ])
+  .then((result) => {
+    currentlyEmployed = result.currentlyemployed;
 
-      softSkillOne = result.softskillone;
-      softSkillTwo = result.softskilltwo;
-      softSkillThree = result.softskillthree;
-      softSkillFour = result.softskillfour;
-      softSkillFive = result.softskillfive;
-      softSkillSix = result.softskillsix;
+    currentemployer = result.currentemployer;
+    years = result.currentemployeryears;
+    jobType = result.jobtype;
+    industry = result.currentemployerindustry;
 
-      projectOne.name = result.projectonename;
-      projectOne.desc = result.projectonedesc;
+    softSkillOne = result.softskillone;
+    softSkillTwo = result.softskilltwo;
+    softSkillThree = result.softskillthree;
+    softSkillFour = result.softskillfour;
+    softSkillFive = result.softskillfive;
+    softSkillSix = result.softskillsix;
 
-      projectTwo.name = result.projecttwoname;
-      projectTwo.desc = result.projecttwodesc;
+    projectOne.name = result.projectonename;
+    projectOne.desc = result.projectonedesc;
 
-      projectThree.name = result.projectthreename;
-      projectTwo.desc = result.projectthreedesc;
+    projectTwo.name = result.projecttwoname;
+    projectTwo.desc = result.projecttwodesc;
 
-      userName = result.firstname + " " + result.lastname;
-      userMobile = result.mobile;
-      userEmail = result.email;
-      userLinkedIn = result.linkedin;
-      userGitHub = result.github;
-      userPortfolioLink = result.portfolio;
-      console.log("username: " + userName);
-      console.log("current/softskill1: " + softSkillOne);
-      console.log("current/softskill2: " + softSkillTwo);
-      console.log("current/softskill3: " + softSkillThree);
-      console.log("current/softskill4: " + softSkillFour);
-      console.log("current/softskill5: " + softSkillFive);
-      console.log("current/softskill6: " + softSkillSix);
-      console.log("currentemployer: " + currentemployer);
-      console.log("years: " + years);
-      console.log("jobType: " + jobType);
-      console.log("industry: " + industry);
-      console.log("projectOne: " + projectOne.name);
-      console.log("projectTwo: " + projectTwo.name);
-      console.log("projectThree: " + projectThree.name);
-      console.log("program: " + program);
-      console.log("userMobile: " + userMobile);
-      console.log("userLinkedIn: " + userLinkedIn);
-      console.log("userGitHub: " + userGitHub);
-      console.log("userPortfolioLink: " + userPortfolioLink);
-      console.log("userEmail: " + userEmail);
-      console.log("currentlyEmployed: " + currentlyEmployed);
-    });
-});
+    projectThree.name = result.projectthreename;
+    projectTwo.desc = result.projectthreedesc;
 
-document.getElementById("display-cover").addEventListener("click", function () {
-  renderCoverLetter();
-});
+    userName = result.firstname + " " + result.lastname;
+    userMobile = result.mobile;
+    userEmail = result.email;
+    userLinkedIn = result.linkedin;
+    userGitHub = result.github;
+    userPortfolioLink = result.portfolio;
+
+    renderCoverLetter();
+  });
 
 function renderCoverLetter() {
   document.getElementById(
