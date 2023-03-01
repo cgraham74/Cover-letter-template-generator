@@ -36,7 +36,8 @@ button:active {
   text-align: center;
   padding-bottom: 0.5em;
 }
-.cover-letter-container {
+.popup-btn-container {
   display: flex;
   flex-direction: row;
+  gap: 0.2em;
 }
