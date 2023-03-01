@@ -118,9 +118,9 @@
                 <br />
                 <label for="job-type-el"> Job Type:</label>
                 <select id="job-type-el" name="job-type-el">
-                  <option value="fulltime">Full time</option>
-                  <option value="parttime">Part time</option>
-                  <option value="seasonal">Seasonal</option>
+                  <option value="full time">Full time</option>
+                  <option value="part time">Part time</option>
+                  <option value="seasonally">Seasonal</option>
                 </select>
                 <br />
                 <input
@@ -269,6 +269,7 @@
                 <br />
               </fieldset>
             </section>
+
             <div class="btn-container">
               <button id="save-el" type="button" aria-label="save">Save</button>
               <button id="get-el" type="button" aria-label="get information">
@@ -276,8 +277,9 @@
               </button>
             </div>
           </form>
-          <div id="status"></div>
-
+          <div class="status-container">
+            <p id="status-el"></p>
+          </div>
           <script src="options.js"></script>
         </main>
       </div>
