@@ -23,12 +23,6 @@ let currentlyEmployed = "";
 let years = "";
 let jobType = "";
 let industry = "";
-let softSkillOne = "";
-let softSkillTwo = "";
-let softSkillThree = "";
-let softSkillFour = "";
-let softSkillFive = "";
-let softSkillSix = "";
 
 let projectOne = {
   name: "",
@@ -52,7 +46,8 @@ let userLinkedIn = "";
 let userGitHub = "";
 let userPortfolioLink = "";
 
-chrome.storage.local
+let softskills = [];
+const chromeObj = chrome.storage.local
   .get([
     "firstname",
     "lastname",
@@ -86,13 +81,14 @@ chrome.storage.local
     years = result.currentemployeryears;
     jobType = result.jobtype;
     industry = result.currentemployerindustry;
-
-    softSkillOne = result.softskillone;
-    softSkillTwo = result.softskilltwo;
-    softSkillThree = result.softskillthree;
-    softSkillFour = result.softskillfour;
-    softSkillFive = result.softskillfive;
-    softSkillSix = result.softskillsix;
+    softskills = [
+      result.softskillone,
+      result.softskilltwo,
+      result.softskillthree,
+      result.softskillfour,
+      result.softskillfive,
+      result.softskillsix,
+    ];
 
     projectOne.name = result.projectonename;
     projectOne.desc = result.projectonedesc;
@@ -134,7 +130,9 @@ function renderCoverLetter() {
 
 
   <p id="work-history-el">Prior to joining the Merit America program, I worked for over ${years} years in the ${industry} industry.  
-  Through this experience, I developed and refined ${softSkillOne} and ${softSkillTwo} skills necessary to succeed in the ${jobTitle} role. 
+  Through this experience, I developed and refined ${softskills[0]} and ${
+    softskills[1]
+  } skills necessary to succeed in the ${jobTitle} role. 
   Changing careers is never easy, but my passion has always been technology and I could not be more excited to pursue this 
   opportunity with ${companyName}.</p>
 
