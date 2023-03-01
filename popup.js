@@ -16,6 +16,14 @@ const company = {
   secondBullet: "Scientist",
   thirdBullet: "Product Designer",
 };
+const user = {
+  name: "",
+  email: "",
+  mobile: "",
+  linkedIn: "",
+  gitHub: "",
+  portfolio: "",
+};
 
 const employer = {
   name: "",
@@ -39,13 +47,6 @@ let projectThree = {
   name: "",
   desc: "",
 };
-
-let userName = "";
-let userMobile = "";
-let userEmail = "";
-let userLinkedIn = "";
-let userGitHub = "";
-let userPortfolioLink = "";
 
 let softskills = [];
 
@@ -96,6 +97,13 @@ const chromeObj = chrome.storage.local
       result.softskillsix,
     ];
 
+    user.name = result.firstname + " " + result.lastname;
+    user.mobile = result.mobile;
+    user.email = result.email;
+    user.linkedIn = result.linkedin;
+    user.gitHub = result.github;
+    user.portfolio = result.portfolio;
+
     projectOne.name = result.projectonename;
     projectOne.desc = result.projectonedesc;
 
@@ -105,12 +113,13 @@ const chromeObj = chrome.storage.local
     projectThree.name = result.projectthreename;
     projectTwo.desc = result.projectthreedesc;
 
-    userName = result.firstname + " " + result.lastname;
-    userMobile = result.mobile;
-    userEmail = result.email;
-    userLinkedIn = result.linkedin;
-    userGitHub = result.github;
-    userPortfolioLink = result.portfolio;
+    // userName = result.firstname + " " + result.lastname;
+    // userMobile = result.mobile;
+    // userEmail = result.email;
+    // userLinkedIn = result.linkedin;
+    // userGitHub = result.github;
+    // userPortfolioLink = result.portfolio;
+    console.dir(user);
     console.dir(employer);
     console.dir(company);
     renderCoverLetter();
@@ -157,10 +166,10 @@ function renderCoverLetter() {
 
   <p id="closing-el">I hope that we can further discuss what value I can add to your team in an interview.</p>
   <p id="signature-el">Regards,</p>
-  <p id="user-name-el" class="signature">${userName}</p>
-  <p id="user-mobile-el" class="signature">${userMobile}</p>
-  <p id="user-email-el" class="signature">${userEmail}</p>
-  <p id="user-linkedin-el" class="signature">${userLinkedIn}</p>
-  <p id="user-github-el" class="signature">${userGitHub}</p>
-  <p id="user-portfolio-el" class="signature">${userPortfolioLink}</p>`;
+  <p id="user-name-el" class="signature">${user.name}</p>
+  <p id="user-mobile-el" class="signature">${user.mobile}</p>
+  <p id="user-email-el" class="signature">${user.email}</p>
+  <p id="user-linkedin-el" class="signature">${user.linkedIn}</p>
+  <p id="user-github-el" class="signature">${user.gitHub}</p>
+  <p id="user-portfolio-el" class="signature">${user.portfolio}</p>`;
 }
