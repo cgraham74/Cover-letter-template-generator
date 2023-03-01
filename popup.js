@@ -1,11 +1,4 @@
-let hiringManager = "Dummy data hiring manager";
-let jobTitle = "Dummy data job title";
-let firstJobBullet = "Dummy data bullet";
-let secondJobBullet = "Dummy data bullet";
-let thirdJobBullet = "Dummy data bullet";
-let companyName = "Dummy data company";
-let userAspiringJob = "SWE";
-let program = "Dummy data program";
+let educationCourse = "Full Stack Java Development";
 function getCurrentLocalDate() {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
@@ -15,14 +8,22 @@ function getCurrentLocalDate() {
   return localDate;
 }
 
-function greeting() {
-  return hiringManager ? hiringManager : companyName;
-}
-let currentemployer = "";
-let currentlyEmployed = "";
-let years = "";
-let jobType = "";
-let industry = "";
+const company = {
+  name: "Acme",
+  hiringPerson: "Wile E. Cyote",
+  jobTitle: "Super Genius",
+  firstBullet: "Beta Tester",
+  secondBullet: "Scientist",
+  thirdBullet: "Product Designer",
+};
+
+const employer = {
+  name: "",
+  employed: "",
+  years: "",
+  type: "",
+  industry: "",
+};
 
 let projectOne = {
   name: "",
@@ -47,6 +48,11 @@ let userGitHub = "";
 let userPortfolioLink = "";
 
 let softskills = [];
+
+function greeting() {
+  return company.hiringPerson ? company.hiringPerson : company.name;
+}
+
 const chromeObj = chrome.storage.local
   .get([
     "firstname",
@@ -75,12 +81,12 @@ const chromeObj = chrome.storage.local
     "projectthreedesc",
   ])
   .then((result) => {
-    currentlyEmployed = result.currentlyemployed;
+    employer.name = result.currentemployer;
+    employer.employed = result.currentlyemployed;
+    employer.industry = result.currentemployerindustry;
+    employer.type = result.jobtype;
+    employer.years = result.currentemployeryears;
 
-    currentemployer = result.currentemployer;
-    years = result.currentemployeryears;
-    jobType = result.jobtype;
-    industry = result.currentemployerindustry;
     softskills = [
       result.softskillone,
       result.softskilltwo,
@@ -105,7 +111,8 @@ const chromeObj = chrome.storage.local
     userLinkedIn = result.linkedin;
     userGitHub = result.github;
     userPortfolioLink = result.portfolio;
-
+    console.dir(employer);
+    console.dir(company);
     renderCoverLetter();
   });
 
@@ -113,14 +120,24 @@ function renderCoverLetter() {
   document.getElementById(
     "cover-letter-container"
   ).innerHTML = `<p id="date-el">${getCurrentLocalDate()}</p>
-  <p id="greeting-el">Dear ${greeting()}</p>
-  <p id="intro-el">I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
-  This is an exciting opportunity to work for ${companyName} because of the focus on ${firstJobBullet}, ${secondJobBullet}, and ${thirdJobBullet}. 
+  <p id="greeting-el">Dear ${greeting()},</p>
+  <p id="intro-el">I am writing to express my enthusiasm and interest in the ${
+    company.jobTitle
+  } position.  
+  This is an exciting opportunity to work for ${
+    company.name
+  } because of the focus on ${company.firstBullet}, ${
+    company.secondBullet
+  }, and ${company.thirdBullet}. 
   With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
   I believe that I would be an excellent candidate for the role.</p>
 
-  <p id="current-skills-el">While working ${jobType}, I recently completed an accelerated, ${program} with Merit America. 
-  As an aspiring ${userAspiringJob}, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
+  <p id="current-skills-el">While working ${
+    employer.type
+  }, I recently completed an accelerated ${educationCourse} boot camp with Merit America. 
+  As an aspiring ${
+    company.jobTitle
+  }, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
   and web development with React using ES6 JavaScript. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
   Git, and Design Patterns. In addition to conquering many individual assignments, pair programming assignments, and algorithm problems, I had the 
   opportunity to showcase my abilities by collaboratively building a ${
@@ -129,12 +146,14 @@ function renderCoverLetter() {
   a full-stack ${projectThree.name} application that ${projectThree.desc}.</p>
 
 
-  <p id="work-history-el">Prior to joining the Merit America program, I worked for over ${years} years in the ${industry} industry.  
+  <p id="work-history-el">Prior to joining the Merit America program, I worked for over ${
+    employer.years
+  } years in the ${employer.industry} industry.  
   Through this experience, I developed and refined ${softskills[0]} and ${
     softskills[1]
-  } skills necessary to succeed in the ${jobTitle} role. 
+  } skills necessary to succeed in the ${company.jobTitle} role. 
   Changing careers is never easy, but my passion has always been technology and I could not be more excited to pursue this 
-  opportunity with ${companyName}.</p>
+  opportunity with ${company.name}.</p>
 
   <p id="closing-el">I hope that we can further discuss what value I can add to your team in an interview.</p>
   <p id="signature-el">Regards,</p>
