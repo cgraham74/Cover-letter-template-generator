@@ -28,10 +28,26 @@ const fields = [
 function save_options() {
   fields.forEach((field) => {
     const element = document.getElementById(field.id);
-    chrome.storage.local.set({ [field.key]: element.value }).then(() => {
-      console.log(`Value for ${field.key} is set to ${element.value}`);
-    });
+    const value = element.value.trim();
+    if (value !== "") {
+      chrome.storage.local.get([field.key], (result) => {
+        const storedValue = result[field.key];
+        if (storedValue !== value) {
+          chrome.storage.local.set({ [field.key]: value }, () => {
+            console.log(`Value for ${field.key} is set to ${value}`);
+            updateStatus(`Update ${field.key} to ${value} ✔️`);
+          });
+        }
+      });
+    }
   });
+}
+
+function updateStatus(message) {
+  const statusEl = document.getElementById("status-el");
+  if (statusEl) {
+    statusEl.textContent = message;
+  }
 }
 
 function getTemplateInfo() {
@@ -75,7 +91,7 @@ function getTemplateInfo() {
       console.log("projectOne: " + result.projectonename);
       console.log("projectTwo: " + result.projecttwoname);
       console.log("projectThree: " + result.projectthreename);
-      console.log("JOb type" + result.jobtype);
+      console.log("Job type: " + result.jobtype);
       console.log("userMobile: " + result.mobile);
       console.log("userLinkedIn: " + result.linkedin);
       console.log("userGitHub: " + result.github);

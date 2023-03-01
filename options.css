@@ -98,3 +98,6 @@ section {
   justify-content: center;
   gap: 0.2em;
 }
+.status-container {
+  padding: 1em;
+}
