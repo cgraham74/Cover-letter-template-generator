@@ -79,25 +79,7 @@ function getTemplateInfo() {
       "projectthreedesc",
     ])
     .then((result) => {
-      console.log("Firstname " + result.firstname);
-      console.log("Lastname: " + result.lastname);
-      console.log("current/softskill1: " + result.softskillone);
-      console.log("current/softskill2: " + result.softskilltwo);
-      console.log("current/softskill3: " + result.softskillthree);
-      console.log("current/softskill4: " + result.softskillfour);
-      console.log("current/softskill5: " + result.softskillfive);
-      console.log("current/softskill6: " + result.softskillsix);
-      console.log("currentemployer: " + result.currentemployer);
-      console.log("projectOne: " + result.projectonename);
-      console.log("projectTwo: " + result.projecttwoname);
-      console.log("projectThree: " + result.projectthreename);
-      console.log("Job type: " + result.jobtype);
-      console.log("userMobile: " + result.mobile);
-      console.log("userLinkedIn: " + result.linkedin);
-      console.log("userGitHub: " + result.github);
-      console.log("userPortfolioLink: " + result.portfolio);
-      console.log("userEmail: " + result.email);
-      console.log("currentlyEmployed: " + result.currentlyemployed);
+      console.log(result);
     });
 }
 
