@@ -113,12 +113,6 @@ const chromeObj = chrome.storage.local
     projectThree.name = result.projectthreename;
     projectTwo.desc = result.projectthreedesc;
 
-    // userName = result.firstname + " " + result.lastname;
-    // userMobile = result.mobile;
-    // userEmail = result.email;
-    // userLinkedIn = result.linkedin;
-    // userGitHub = result.github;
-    // userPortfolioLink = result.portfolio;
     console.dir(user);
     console.dir(employer);
     console.dir(company);
