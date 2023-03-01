@@ -33,20 +33,20 @@ const employer = {
   industry: "",
 };
 
-let projectOne = {
-  name: "",
-  desc: "",
-};
-
-let projectTwo = {
-  name: "",
-  desc: "",
-};
-
-let projectThree = {
-  name: "",
-  desc: "",
-};
+const projects = [
+  {
+    name: "",
+    desc: "",
+  },
+  {
+    name: "",
+    desc: "",
+  },
+  {
+    name: "",
+    desc: "",
+  },
+];
 
 let softskills = [];
 
@@ -82,37 +82,62 @@ const chromeObj = chrome.storage.local
     "projectthreedesc",
   ])
   .then((result) => {
-    employer.name = result.currentemployer;
-    employer.employed = result.currentlyemployed;
-    employer.industry = result.currentemployerindustry;
-    employer.type = result.jobtype;
-    employer.years = result.currentemployeryears;
+    const {
+      firstname,
+      lastname,
+      mobile,
+      email,
+      linkedin,
+      github,
+      portfolio,
+      currentlyemployed,
+      currentemployer,
+      currentemployeryears,
+      currentemployerindustry,
+      jobtype,
+      softskillone,
+      softskilltwo,
+      softskillthree,
+      softskillfour,
+      softskillfive,
+      softskillsix,
+      projectonename,
+      projectonedesc,
+      projecttwoname,
+      projecttwodesc,
+      projectthreename,
+      projectthreedesc,
+    } = result;
+    employer.name = currentemployer;
+    employer.employed = currentlyemployed;
+    employer.industry = currentemployerindustry;
+    employer.type = jobtype;
+    employer.years = currentemployeryears;
 
     softskills = [
-      result.softskillone,
-      result.softskilltwo,
-      result.softskillthree,
-      result.softskillfour,
-      result.softskillfive,
-      result.softskillsix,
+      softskillone,
+      softskilltwo,
+      softskillthree,
+      softskillfour,
+      softskillfive,
+      softskillsix,
     ];
 
-    user.name = result.firstname + " " + result.lastname;
-    user.mobile = result.mobile;
-    user.email = result.email;
-    user.linkedIn = result.linkedin;
-    user.gitHub = result.github;
-    user.portfolio = result.portfolio;
+    user.name = firstname + " " + lastname;
+    user.mobile = mobile;
+    user.email = email;
+    user.linkedIn = linkedin;
+    user.gitHub = github;
+    user.portfolio = portfolio;
 
-    projectOne.name = result.projectonename;
-    projectOne.desc = result.projectonedesc;
+    projects[0].name = projectonename;
+    projects[0].desc = projectonedesc;
+    projects[1].name = projecttwoname;
+    projects[1].desc = projecttwodesc;
+    projects[2].name = projectthreename;
+    projects[2].desc = projectthreedesc;
 
-    projectTwo.name = result.projecttwoname;
-    projectTwo.desc = result.projecttwodesc;
-
-    projectThree.name = result.projectthreename;
-    projectTwo.desc = result.projectthreedesc;
-
+    console.dir(projects);
     console.dir(user);
     console.dir(employer);
     console.dir(company);
@@ -144,9 +169,9 @@ function renderCoverLetter() {
   and web development with React using ES6 JavaScript. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
   Git, and Design Patterns. In addition to conquering many individual assignments, pair programming assignments, and algorithm problems, I had the 
   opportunity to showcase my abilities by collaboratively building a ${
-    projectOne.name
-  } application, ${projectTwo.name} application, and most recently 
-  a full-stack ${projectThree.name} application that ${projectThree.desc}.</p>
+    projects[0].name
+  } application, ${projects[1].name} application, and most recently 
+  a full-stack ${projects[2].name} application that ${projects[2].desc}.</p>
 
 
   <p id="work-history-el">Prior to joining the Merit America program, I worked for over ${
