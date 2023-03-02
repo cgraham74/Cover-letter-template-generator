@@ -17,7 +17,7 @@
       </header>
       <div id="main-cover-container">
         <main>
-          <form>
+          <form id="form-data">
             <section id="signature">
               <fieldset class="fieldset-container">
                 <legend><h3>Signature</h3></legend>
@@ -27,8 +27,8 @@
                 <input
                   type="text"
                   id="firstname-el"
-                  name="firstname-el"
-                  class="text-input"
+                  name="First name"
+                  class="text-input user"
                   placeholder="First name..."
                   aria-label="First name"
                   required
@@ -38,8 +38,8 @@
                 <input
                   type="text"
                   id="lastname-el"
-                  name="lastname-el"
-                  class="text-input"
+                  name="Last name"
+                  class="text-input user"
                   placeholder="Last name..."
                   aria-label="Last name"
                   required
@@ -49,8 +49,8 @@
                 <input
                   type="text"
                   id="mobile-el"
-                  name="mobile-el"
-                  class="text-input"
+                  name="mobile"
+                  class="text-input user"
                   placeholder="(000) 000-0000"
                   aria-label="Phone Number"
                   required
@@ -60,8 +60,8 @@
                 <input
                   type="email"
                   id="email-el"
-                  name="email-el"
-                  class="text-input"
+                  name="email"
+                  class="text-input user"
                   placeholder="YourName@YourEmail.com"
                   aria-label="Email"
                   required
@@ -71,8 +71,8 @@
                 <input
                   type="url"
                   id="linkedin-el"
-                  name="linkedin-el"
-                  class="text-input"
+                  name="linkedin"
+                  class="text-input user"
                   placeholder="https://www.linkedin.com/in/..."
                   aria-label="LinkedIn Url"
                 />
@@ -81,8 +81,8 @@
                 <input
                   type="url"
                   id="github-el"
-                  name="github-el"
-                  class="text-input"
+                  name="github"
+                  class="text-input user"
                   placeholder="https://github.com/..."
                   aria-label="GitHub Url"
                 />
@@ -91,8 +91,8 @@
                 <input
                   type="url"
                   id="portfolio-el"
-                  name="portfolio-el"
-                  class="text-input"
+                  name="portfolio"
+                  class="text-input user"
                   placeholder="http://Your Portfolio..."
                   aria-label="Portfolio Url"
                 />
@@ -111,13 +111,17 @@
                   <em>Company's name</em>"
                 </p>
                 <label for="currently-employed"> Currently Employed?</label>
-                <select id="currently-employed" name="currently-employed">
+                <select
+                  id="currently-employed"
+                  name="employed"
+                  class="employer"
+                >
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
                 <br />
                 <label for="job-type-el"> Job Type:</label>
-                <select id="job-type-el" name="job-type-el">
+                <select id="job-type-el" name="job type" class="employer">
                   <option value="full time">Full time</option>
                   <option value="part time">Part time</option>
                   <option value="seasonally">Seasonal</option>
@@ -126,8 +130,9 @@
                 <input
                   type="text"
                   id="current-employer-el"
-                  name="current-employer-el"
+                  name="current employer"
                   placeholder="Employer's Name..."
+                  class="employer"
                   aria-label="Employer Name"
                 />
                 <br />
@@ -136,6 +141,7 @@
                   id="current-employer-industry-el"
                   name="current-employer-industry-el"
                   placeholder="Industry? Example: Retail... Service... Construction..."
+                  class="employer"
                   aria-label="Industry"
                 />
                 <br />
@@ -143,8 +149,9 @@
                 <input
                   type="number"
                   id="current-employer-years-el"
-                  name="current-employer-years-el"
+                  name="years"
                   placeholder="Employment length..."
+                  class="employer"
                   aria-label="Employment length"
                 />
 
@@ -154,8 +161,9 @@
                 <input
                   type="text"
                   id="softskill-one-el"
-                  name="softskill-one-el"
+                  name="softskill one"
                   placeholder="Soft skill..."
+                  class="skills"
                   aria-label="Soft skill 1"
                 />
                 <br />
@@ -163,8 +171,9 @@
                 <input
                   type="text"
                   id="softskill-two-el"
-                  name="softskill-two-el"
+                  name="softskill two"
                   placeholder="Soft skill 2..."
+                  class="skills"
                   aria-label="Soft skill 2"
                 />
                 <br />
@@ -172,8 +181,9 @@
                 <input
                   type="text"
                   id="softskill-three-el"
-                  name="softskill-three-el"
+                  name="softskill three"
                   placeholder="Soft skill 3..."
+                  class="skills"
                   aria-label="Soft skill 3"
                 />
                 <br />
@@ -181,8 +191,9 @@
                 <input
                   type="text"
                   id="softskill-four-el"
-                  name="softskill-four-el"
+                  name="softskill four"
                   placeholder="Soft skill 4..."
+                  class="skills"
                   aria-label="Soft skill 4"
                 />
                 <br />
@@ -190,8 +201,9 @@
                 <input
                   type="text"
                   id="softskill-five-el"
-                  name="softskill-five-el"
+                  name="softskill five"
                   placeholder="Soft skill 5..."
+                  class="skills"
                   aria-label="Soft skill 5"
                 />
                 <br />
@@ -199,8 +211,9 @@
                 <input
                   type="text"
                   id="softskill-six-el"
-                  name="softskill-six-el"
+                  name="softskill six"
                   placeholder="Soft skill 6..."
+                  class="skills"
                   aria-label="Soft skill 6"
                 />
                 <br />
@@ -214,18 +227,20 @@
                 <input
                   type="text"
                   id="project-one-name-el"
-                  name="project-one-name-el"
+                  name="project one name"
                   placeholder="First project name..."
+                  class="projects"
                   aria-label="Project name 1"
                 />
                 <br />
 
                 <textarea
-                  name="project-one-desc-el"
+                  name="project one desc"
                   id="project-one-desc-el"
                   rows="5"
                   cols="25"
                   placeholder="Description..."
+                  class="projects"
                   aria-label="Project 1 Description"
                 ></textarea>
                 <br />
@@ -233,18 +248,20 @@
                 <input
                   type="text"
                   id="project-two-name-el"
-                  name="project-two-name-el"
+                  name="project two name"
                   placeholder="Second project name..."
+                  class="projects"
                   aria-label="Project name 2"
                 />
                 <br />
 
                 <textarea
                   id="project-two-desc-el"
-                  name="project-two-desc-el"
+                  name="project two desc"
                   rows="5"
                   cols="25"
                   placeholder="Description..."
+                  class="projects"
                   aria-label="Project 2 Description"
                 ></textarea>
                 <br />
@@ -252,8 +269,9 @@
                 <input
                   type="text"
                   id="project-three-name-el"
-                  name="project-three-name-el"
+                  name="project three name"
                   placeholder="Third project name..."
+                  class="projects"
                   aria-label="Project name 3"
                 />
                 <br />
@@ -263,7 +281,8 @@
                   rows="5"
                   cols="25"
                   placeholder="Description..."
-                  name="project-three-desc-el"
+                  name="project three desc"
+                  class="projects"
                   aria-label="Project 3 Description"
                 ></textarea>
                 <br />
@@ -274,6 +293,13 @@
               <button id="save-el" type="button" aria-label="save">Save</button>
               <button id="get-el" type="button" aria-label="get information">
                 Get info
+              </button>
+              <button
+                id="form-data-el"
+                type="submit"
+                aria-label="get information"
+              >
+                Form
               </button>
             </div>
           </form>
