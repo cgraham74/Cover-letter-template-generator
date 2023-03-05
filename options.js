@@ -24,6 +24,7 @@ const fields = [
   { id: "project-three-name-el", key: "projectthreename" },
   { id: "project-three-desc-el", key: "projectthreedesc" },
 ];
+
 const user = [
   { id: "firstname-el", key: "firstname" },
   { id: "lastname-el", key: "lastname" },
@@ -33,36 +34,46 @@ const user = [
   { id: "github-el", key: "github" },
   { id: "portfolio-el", key: "portfolio" },
 ];
-const projects =[
-{ id: "project-one-name-el", key: "projectonename" },
-{ id: "project-one-desc-el", key: "projectonedesc" },
-{ id: "project-two-name-el", key: "projecttwoname" },
-{ id: "project-two-desc-el", key: "projecttwodesc" },
-{ id: "project-three-name-el", key: "projectthreename" },
-{ id: "project-three-desc-el", key: "projectthreedesc" },
-]
+
+const projects = [
+  { id: "project-one-name-el", key: "firstProject" },
+  { id: "project-one-desc-el", key: "firstDesc" },
+  { id: "project-two-name-el", key: "secondProject" },
+  { id: "project-two-desc-el", key: "secondDesc" },
+  { id: "project-three-name-el", key: "thirdProject" },
+  { id: "project-three-desc-el", key: "thirdDesc" },
+];
+
 const employer = [
-  { id: "current-employer-el", key: "currentemployer" },
-  { id: "current-employer-years-el", key: "currentemployeryears" },
-  { id: "current-employer-industry-el", key: "currentemployerindustry" },
+  { id: "current-employer-el", key: "employer" },
+  { id: "current-employer-years-el", key: "years" },
+  { id: "current-employer-industry-el", key: "industry" },
   { id: "job-type-el", key: "jobtype" },
-  { id: "softskill-one-el", key: "softskillone" },
-  { id: "softskill-two-el", key: "softskilltwo" },
-  { id: "softskill-three-el", key: "softskillthree" },
-  { id: "softskill-four-el", key: "softskillfour" },
-  { id: "softskill-five-el", key: "softskillfive" },
-  { id: "softskill-six-el", key: "softskillsix" },
-  { id: "currently-employed", key: "currentlyemployed" },
-]
+  { id: "softskill-one-el", key: "firstSkill" },
+  { id: "softskill-two-el", key: "secondSkill" },
+  { id: "softskill-three-el", key: "thirdSkill" },
+  { id: "softskill-four-el", key: "fourthSkill" },
+  { id: "softskill-five-el", key: "fifthSkill" },
+  { id: "softskill-six-el", key: "sixthSkill" },
+  { id: "currently-employed", key: "isEmployed" },
+];
 
 const form = document.getElementById("form-data");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const fd = new FormData(form);
-  const obj = Object.fromEntries(fd);
-  const json = JSON.stringify(obj);
-  console.log(json);
+  // const obj = Object.fromEntries(fd);
+  // const json = JSON.stringify(obj);
 
+  for (const [key, value] of fd) {
+    if (value) {
+      console.log(`${key}":"${value}`);
+      chrome.storage.local.set({ [key]: value }, () => {
+        console.log(`Value for ${key} is set to ${value}`);
+        updateStatus(`Update ${key} to ${value} ✔️`);
+      });
+    }
+  }
 });
 
 function save_options() {
@@ -120,7 +131,6 @@ function getTemplateInfo() {
     ])
     .then((result) => {
       console.log(result);
-      
     });
 }
 
