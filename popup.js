@@ -13,7 +13,7 @@ function getCurrentLocalDate() {
 
 const company = {
   name: "Acme",
-  hiringPerson: "Wile E. Cyote",
+  hiringPerson: "Chuck Jones",
   jobTitle: "Super Genius",
   firstBullet: "Beta Tester",
   secondBullet: "Scientist",
@@ -66,23 +66,22 @@ const chromeObj = chrome.storage.local
     "linkedin",
     "github",
     "portfolio",
-    "currentlyemployed",
-    "currentemployer",
-    "currentemployeryears",
-    "currentemployerindustry",
+    "employed",
+    "years",
+    "industry",
     "jobtype",
-    "softskillone",
-    "softskilltwo",
-    "softskillthree",
-    "softskillfour",
-    "softskillfive",
-    "softskillsix",
-    "projectonename",
-    "projectonedesc",
-    "projecttwoname",
-    "projecttwodesc",
-    "projectthreename",
-    "projectthreedesc",
+    "firstSkill",
+    "secondSkill",
+    "thirdSkill",
+    "fourthSkill",
+    "fifthSkill",
+    "sixthSkill",
+    "firstProject",
+    "firstDesc",
+    "secondProject",
+    "secondDesc",
+    "thirdProject",
+    "thirdDesc",
   ])
   .then((result) => {
     const {
@@ -93,37 +92,37 @@ const chromeObj = chrome.storage.local
       linkedin,
       github,
       portfolio,
-      currentlyemployed,
-      currentemployer,
-      currentemployeryears,
-      currentemployerindustry,
+      employed,
+      employer,
+      years,
+      industry,
       jobtype,
-      softskillone,
-      softskilltwo,
-      softskillthree,
-      softskillfour,
-      softskillfive,
-      softskillsix,
-      projectonename,
-      projectonedesc,
-      projecttwoname,
-      projecttwodesc,
-      projectthreename,
-      projectthreedesc,
+      firstSkill,
+      secondSkill,
+      thirdSkill,
+      fourthSkill,
+      fifthSkill,
+      sixthSkill,
+      firstProject,
+      firstDesc,
+      secondProject,
+      secondDesc,
+      thirdProject,
+      thirdDesc,
     } = result;
-    employer.name = currentemployer;
-    employer.employed = currentlyemployed;
-    employer.industry = currentemployerindustry;
+    employer.name = employer;
+    employer.employed = employed;
+    employer.industry = industry;
     employer.type = jobtype;
-    employer.years = currentemployeryears;
+    employer.years = years;
 
     softskills = [
-      softskillone,
-      softskilltwo,
-      softskillthree,
-      softskillfour,
-      softskillfive,
-      softskillsix,
+      firstSkill,
+      secondSkill,
+      thirdSkill,
+      fourthSkill,
+      fifthSkill,
+      sixthSkill,
     ];
 
     user.fullname = firstname + " " + lastname;
@@ -133,12 +132,12 @@ const chromeObj = chrome.storage.local
     user.gitHub = github;
     user.portfolio = portfolio;
 
-    projects[0].name = projectonename;
-    projects[0].desc = projectonedesc;
-    projects[1].name = projecttwoname;
-    projects[1].desc = projecttwodesc;
-    projects[2].name = projectthreename;
-    projects[2].desc = projectthreedesc;
+    projects[0].name = firstProject;
+    projects[0].desc = firstDesc;
+    projects[1].name = secondProject;
+    projects[1].desc = secondDesc;
+    projects[2].name = thirdProject;
+    projects[2].desc = thirdDesc;
 
     console.dir(projects);
     console.dir(user);

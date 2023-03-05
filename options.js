@@ -6,45 +6,6 @@ const fields = [
   { id: "linkedin-el", key: "linkedin" },
   { id: "github-el", key: "github" },
   { id: "portfolio-el", key: "portfolio" },
-  { id: "current-employer-el", key: "currentemployer" },
-  { id: "current-employer-years-el", key: "currentemployeryears" },
-  { id: "current-employer-industry-el", key: "currentemployerindustry" },
-  { id: "job-type-el", key: "jobtype" },
-  { id: "softskill-one-el", key: "softskillone" },
-  { id: "softskill-two-el", key: "softskilltwo" },
-  { id: "softskill-three-el", key: "softskillthree" },
-  { id: "softskill-four-el", key: "softskillfour" },
-  { id: "softskill-five-el", key: "softskillfive" },
-  { id: "softskill-six-el", key: "softskillsix" },
-  { id: "currently-employed", key: "currentlyemployed" },
-  { id: "project-one-name-el", key: "projectonename" },
-  { id: "project-one-desc-el", key: "projectonedesc" },
-  { id: "project-two-name-el", key: "projecttwoname" },
-  { id: "project-two-desc-el", key: "projecttwodesc" },
-  { id: "project-three-name-el", key: "projectthreename" },
-  { id: "project-three-desc-el", key: "projectthreedesc" },
-];
-
-const user = [
-  { id: "firstname-el", key: "firstname" },
-  { id: "lastname-el", key: "lastname" },
-  { id: "mobile-el", key: "mobile" },
-  { id: "email-el", key: "email" },
-  { id: "linkedin-el", key: "linkedin" },
-  { id: "github-el", key: "github" },
-  { id: "portfolio-el", key: "portfolio" },
-];
-
-const projects = [
-  { id: "project-one-name-el", key: "firstProject" },
-  { id: "project-one-desc-el", key: "firstDesc" },
-  { id: "project-two-name-el", key: "secondProject" },
-  { id: "project-two-desc-el", key: "secondDesc" },
-  { id: "project-three-name-el", key: "thirdProject" },
-  { id: "project-three-desc-el", key: "thirdDesc" },
-];
-
-const employer = [
   { id: "current-employer-el", key: "employer" },
   { id: "current-employer-years-el", key: "years" },
   { id: "current-employer-industry-el", key: "industry" },
@@ -55,7 +16,13 @@ const employer = [
   { id: "softskill-four-el", key: "fourthSkill" },
   { id: "softskill-five-el", key: "fifthSkill" },
   { id: "softskill-six-el", key: "sixthSkill" },
-  { id: "currently-employed", key: "isEmployed" },
+  { id: "currently-employed", key: "employed" },
+  { id: "project-one-name-el", key: "firstProject" },
+  { id: "project-one-desc-el", key: "firstDesc" },
+  { id: "project-two-name-el", key: "secondProject" },
+  { id: "project-two-desc-el", key: "secondDesc" },
+  { id: "project-three-name-el", key: "thirdProject" },
+  { id: "project-three-desc-el", key: "thirdDesc" },
 ];
 
 const form = document.getElementById("form-data");
@@ -85,7 +52,6 @@ function save_options() {
         const storedValue = result[field.key];
         if (storedValue !== value) {
           chrome.storage.local.set({ [field.key]: value }, () => {
-            console.log(`Value for ${field.key} is set to ${value}`);
             updateStatus(`Update ${field.key} to ${value} ✔️`);
           });
         }
@@ -104,30 +70,29 @@ function updateStatus(message) {
 function getTemplateInfo() {
   chrome.storage.local
     .get([
-      "firstname",
+      "first name",
       "lastname",
       "mobile",
       "email",
       "linkedin",
       "github",
       "portfolio",
-      "currentlyemployed",
-      "currentemployer",
-      "currentemployeryears",
-      "currentemployerindustry",
+      "employed",
+      "years",
+      "industry",
       "jobtype",
-      "softskillone",
-      "softskilltwo",
-      "softskillthree",
-      "softskillfour",
-      "softskillfive",
-      "softskillsix",
-      "projectonename",
-      "projectonedesc",
-      "projecttwoname",
-      "projecttwodesc",
-      "projectthreename",
-      "projectthreedesc",
+      "firstSkill",
+      "secondSkill",
+      "thirdSkill",
+      "fourthSkill",
+      "fifthSkill",
+      "sixthSkill",
+      "firstProject",
+      "firstDesc",
+      "secondProject",
+      "secondDesc",
+      "thirdProject",
+      "thirdDesc",
     ])
     .then((result) => {
       console.log(result);
@@ -135,5 +100,5 @@ function getTemplateInfo() {
 }
 
 // document.addEventListener("DOMContentLoaded", restore_options);
-document.getElementById("save-el").addEventListener("click", save_options);
+// document.getElementById("save-el").addEventListener("click", save_options);
 document.getElementById("get-el").addEventListener("click", getTemplateInfo);
