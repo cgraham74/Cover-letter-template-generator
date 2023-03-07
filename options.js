@@ -14,7 +14,7 @@ const fields = [
   { id: "current-employer-el", key: "employer" },
   { id: "current-employer-years-el", key: "years" },
   { id: "current-employer-industry-el", key: "industry" },
-  { id: "job-type-el", key: "jobtype" },
+  { id: "job-type-el", key: "job type" },
   { id: "softskill-one-el", key: "first soft skill" },
   { id: "softskill-two-el", key: "second soft skill" },
   { id: "softskill-three-el", key: "third soft skill" },
