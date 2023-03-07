@@ -57,6 +57,7 @@ function greeting() {
   return company.hiringPerson ? company.hiringPerson : company.name;
 }
 
+// Using this for testing purposes - remove later
 chrome.storage.local.get(null, function (items) {
   let entries = Object.keys(items);
   entries.forEach((element) => {

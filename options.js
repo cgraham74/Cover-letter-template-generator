@@ -10,10 +10,10 @@ const fields = [
   { id: "linkedin-el", key: "LinkedIn" },
   { id: "github-el", key: "GitHub" },
   { id: "portfolio-el", key: "portfolio" },
-  { id: "currently-employed", key: "employed" },
-  { id: "current-employer-el", key: "employer" },
-  { id: "current-employer-years-el", key: "years" },
-  { id: "current-employer-industry-el", key: "industry" },
+  { id: "employed-el", key: "employed" },
+  { id: "employer-el", key: "employer" },
+  { id: "employer-years-el", key: "years" },
+  { id: "employer-industry-el", key: "industry" },
   { id: "job-type-el", key: "job type" },
   { id: "softskill-one-el", key: "first soft skill" },
   { id: "softskill-two-el", key: "second soft skill" },
@@ -67,13 +67,34 @@ function updateStatus(message) {
 }
 
 function getTemplateInfo() {
+  restoreOptions();
   chrome.storage.local.get(null, function (items) {
     let entries = Object.entries(items);
     console.log(entries);
     entries.forEach((element) => {
-      document.getElementById(element[0]).innerText = element[1];
       console.log(element);
     });
+  });
+}
+
+function restoreOptions() {
+  chrome.storage.local.get(null, function (items) {
+    for (const field of fields) {
+      if (field.id) {
+        const value = items[field.key];
+        console.log(`field.id: ${field.id}`);
+        console.log(`value: ${value}`);
+        const el = document.getElementById(field.id);
+        // console.log(`el: ${el}`);
+        if (el && value !== null && value !== undefined) {
+          el.value = value;
+          console.log(value);
+        } else if (field.id === "employed-el" && el) {
+          console.log("else value: " + value);
+          el.value = "no";
+        }
+      }
+    }
   });
 }
 
@@ -88,9 +109,12 @@ function resetTemplateInfo() {
   //   alert("Cancel was pressed");
   // }
 }
-// document.addEventListener("DOMContentLoaded", restore_options);
+
+document.addEventListener("DOMContentLoaded", restoreOptions);
 // document.getElementById("save-el").addEventListener("click", save_options);
-document.getElementById("get-el").addEventListener("click", getTemplateInfo);
+document
+  .getElementById("restore-el")
+  .addEventListener("click", getTemplateInfo);
 document
   .getElementById("reset-el")
   .addEventListener("click", resetTemplateInfo);
