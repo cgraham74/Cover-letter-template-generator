@@ -1,6 +1,24 @@
 const coverLetterHeader = document.getElementById("cover-letter-title-el");
 const downloadDocBtn = document.getElementById("download-doc-btn");
 const downloadPdfBtn = document.getElementById("download-pdf-btn");
+//Prompt questions - 
+//put form in a modal
+//blur background of popup
+//Save form data to session storage (do not want it to persist like the other data)
+//insert data into cover letter
+//call render popup
+
+//Data needed / questions to ask
+//completed program / What course did you complete?
+//company name / What company are you applying to?
+//Three job bullets / What bullet points are in the job listing?
+//Recruiter name (if blank - use company name) / Is there a hiring person/recruiter to send cover letter to?
+//Job title you are applying to / What is the position title?
+
+
+//Implement download as word doc functionality
+
+//implement download as pdf functionality
 let educationCourse = "Full Stack Java Development";
 function getCurrentLocalDate() {
   const currentDate = new Date();
@@ -65,6 +83,7 @@ chrome.storage.local.get(null, function (items) {
   });
 });
 
+//turn into function to be called when ready to populate template
 const chromeObj = chrome.storage.local.get(
   [
     "first name",
