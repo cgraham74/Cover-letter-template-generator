@@ -28,7 +28,7 @@ const user = {
   portfolio: "",
 };
 
-const employer = {
+const currentEmployer = {
   name: "",
   employed: "",
   years: "",
@@ -57,64 +57,79 @@ function greeting() {
   return company.hiringPerson ? company.hiringPerson : company.name;
 }
 
-const chromeObj = chrome.storage.local
-  .get([
-    "firstname",
-    "lastname",
+// Using this for testing purposes - remove later
+chrome.storage.local.get(null, function (items) {
+  let entries = Object.keys(items);
+  entries.forEach((element) => {
+    console.log(JSON.stringify(element));
+  });
+});
+
+const chromeObj = chrome.storage.local.get(
+  [
+    "first name",
+    "last name",
     "mobile",
     "email",
-    "linkedin",
-    "github",
+    "LinkedIn",
+    "GitHub",
     "portfolio",
     "employed",
+    "employer",
     "years",
     "industry",
-    "jobtype",
-    "firstSkill",
-    "secondSkill",
-    "thirdSkill",
-    "fourthSkill",
-    "fifthSkill",
-    "sixthSkill",
-    "firstProject",
-    "firstDesc",
-    "secondProject",
-    "secondDesc",
-    "thirdProject",
-    "thirdDesc",
-  ])
-  .then((result) => {
+    "job type",
+    "first soft skill",
+    "second soft skill",
+    "third soft skill",
+    "fourth soft skill",
+    "fifth soft skill",
+    "sixth soft skill",
+    "first project",
+    "first project description",
+    "second project",
+    "second project description",
+    "third project",
+    "third project description",
+  ],
+  function (result) {
+    if (chrome.runtime.lastError) {
+      console.log(chrome.runtime.lastError.message);
+      return;
+    }
+    console.log(result);
     const {
-      firstname,
-      lastname,
-      mobile,
-      email,
-      linkedin,
-      github,
-      portfolio,
-      employed,
-      employer,
-      years,
-      industry,
-      jobtype,
-      firstSkill,
-      secondSkill,
-      thirdSkill,
-      fourthSkill,
-      fifthSkill,
-      sixthSkill,
-      firstProject,
-      firstDesc,
-      secondProject,
-      secondDesc,
-      thirdProject,
-      thirdDesc,
+      "first name": firstname,
+      "last name": lastname,
+      mobile: mobile,
+      email: email,
+      LinkedIn: linkedin,
+      GitHub: github,
+      portfolio: portfolio,
+      employed: employed,
+      employer: employer,
+      years: years,
+      industry: industry,
+      "job type": jobtype,
+      "first soft skill": firstSkill,
+      "second soft skill": secondSkill,
+      "third soft skill": thirdSkill,
+      "fourth soft skill": fourthSkill,
+      "fifth soft skill": fifthSkill,
+      "sixth soft skill": sixthSkill,
+      "first project": firstProject,
+      "first project description": firstDesc,
+      "second project": secondProject,
+      "second project description": secondDesc,
+      "third project": thirdProject,
+      "third project description": thirdDesc,
     } = result;
-    employer.name = employer;
-    employer.employed = employed;
-    employer.industry = industry;
-    employer.type = jobtype;
-    employer.years = years;
+
+    currentEmployer.name = employer;
+    currentEmployer.employed = employed;
+    currentEmployer.industry = industry;
+    currentEmployer.type = jobtype;
+    currentEmployer.years = years;
 
     softskills = [
       firstSkill,
@@ -145,15 +160,15 @@ const chromeObj = chrome.storage.local
     console.dir(company);
     coverLetterHeader.innerText = `Cover letter for ${company.name}`;
     renderCoverLetter();
-  });
+  }
+);
 
 function renderCoverLetter() {
   const coverLetterContainer = document.getElementById(
     "cover-letter-container"
   );
   const { jobTitle, name, firstBullet, secondBullet, thirdBullet } = company;
-  const { type } = employer;
-  const { years, industry } = employer;
+  const { type, industry, years } = currentEmployer;
   const { name: projectName, desc: projectDescription } = projects[2];
   const { fullname, mobile, email, linkedIn, gitHub, portfolio } = user;
 

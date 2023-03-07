@@ -63,6 +63,37 @@ input[type="number"]:focus {
   border-radius: 3px;
 }
 
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin: 0 8px 0 0;
+  background-color: #ffffff;
+  border: 1px solid var(--medium);
+}
+input[type="radio"]:checked {
+  background-color: var(--medium);
+  border-color: var(--primary);
+}
+input[type="radio"]:hover {
+  background-color: var(--accent);
+  box-shadow: 0px 3px 5px 0px var(--medium);
+}
+
+input[type="radio"]:focus {
+  box-shadow: 0px 3px 5px 0px var(--medium);
+}
+
+.hidden {
+  display: none;
+}
+
 fieldset {
   margin: 1.25em auto;
   display: flex;
