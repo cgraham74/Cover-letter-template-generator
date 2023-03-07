@@ -28,7 +28,7 @@ const user = {
   portfolio: "",
 };
 
-const employer = {
+const currentEmployer = {
   name: "",
   employed: "",
   years: "",
@@ -65,8 +65,8 @@ chrome.storage.local.get(null, function (items) {
   });
 });
 
-const chromeObj = chrome.storage.local
-  .get([
+const chromeObj = chrome.storage.local.get(
+  [
     "first name",
     "last name",
     "mobile",
@@ -91,8 +91,13 @@ const chromeObj = chrome.storage.local
     "second project description",
     "third project",
     "third project description",
-  ])
-  .then((result) => {
+  ],
+  function (result) {
+    if (chrome.runtime.lastError) {
+      console.log(chrome.runtime.lastError.message);
+      return;
+    }
+    console.log(result);
     const {
       "first name": firstname,
       "last name": lastname,
@@ -119,11 +124,12 @@ const chromeObj = chrome.storage.local
       "third project": thirdProject,
       "third project description": thirdDesc,
     } = result;
-    employer.name = employer;
-    employer.employed = employed;
-    employer.industry = industry;
-    employer.type = jobtype;
-    employer.years = years;
+
+    currentEmployer.name = employer;
+    currentEmployer.employed = employed;
+    currentEmployer.industry = industry;
+    currentEmployer.type = jobtype;
+    currentEmployer.years = years;
 
     softskills = [
       firstSkill,
@@ -154,15 +160,15 @@ const chromeObj = chrome.storage.local
     console.dir(company);
     coverLetterHeader.innerText = `Cover letter for ${company.name}`;
     renderCoverLetter();
-  });
+  }
+);
 
 function renderCoverLetter() {
   const coverLetterContainer = document.getElementById(
     "cover-letter-container"
   );
   const { jobTitle, name, firstBullet, secondBullet, thirdBullet } = company;
-  const { type } = employer;
-  const { years, industry } = employer;
+  const { type, industry, years } = currentEmployer;
   const { name: projectName, desc: projectDescription } = projects[2];
   const { fullname, mobile, email, linkedIn, gitHub, portfolio } = user;
 
