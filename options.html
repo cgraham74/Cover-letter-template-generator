@@ -106,18 +106,32 @@
                   "While working <em>full time </em>or <em>part time</em> at
                   <em>Company's name</em>"
                 </p>
-                <label for="currently-employed"> Currently Employed?</label>
-                <select
-                  id="currently-employed"
+                <p>Are you currently employed?</p>
+                <label for="yes">Yes</label>
+                <input
+                  type="radio"
+                  id="yes"
                   name="employed"
-                  class="employer"
-                >
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
+                  class="employer radio-btn"
+                  value="yes"
+                />
+                <label for="no">No</label>
+                <input
+                  type="radio"
+                  id="no"
+                  name="employed"
+                  class="employer radio-btn"
+                  value="no"
+                />
+                <!-- if employed - show jobtype -->
+
                 <br />
-                <label for="job-type-el"> Job Type:</label>
-                <select id="job-type-el" name="job type" class="employer">
+                <label for="job-type-el" class="hidden"> Job Type:</label>
+                <select
+                  id="job-type-el"
+                  name="job type"
+                  class="employer hidden"
+                >
                   <option value="full time">Full time</option>
                   <option value="part time">Part time</option>
                   <option value="seasonally">Seasonal</option>
@@ -126,7 +140,7 @@
                 <input
                   type="text"
                   id="current-employer-el"
-                  name="current employer"
+                  name="employer"
                   placeholder="Employer's Name..."
                   class="employer"
                   aria-label="Employer Name"
@@ -157,7 +171,7 @@
                 <input
                   type="text"
                   id="softskill-one-el"
-                  name="first softskill"
+                  name="first soft skill"
                   placeholder="Soft skill..."
                   class="skills"
                   aria-label="Soft skill 1"
@@ -167,7 +181,7 @@
                 <input
                   type="text"
                   id="softskill-two-el"
-                  name="second softskill"
+                  name="second soft skill"
                   placeholder="Soft skill 2..."
                   class="skills"
                   aria-label="Soft skill 2"
@@ -177,7 +191,7 @@
                 <input
                   type="text"
                   id="softskill-three-el"
-                  name="third softskill"
+                  name="third soft skill"
                   placeholder="Soft skill 3..."
                   class="skills"
                   aria-label="Soft skill 3"
@@ -187,7 +201,7 @@
                 <input
                   type="text"
                   id="softskill-four-el"
-                  name="fourth softskill"
+                  name="fourth soft skill"
                   placeholder="Soft skill 4..."
                   class="skills"
                   aria-label="Soft skill 4"
@@ -197,7 +211,7 @@
                 <input
                   type="text"
                   id="softskill-five-el"
-                  name="fifth softskill"
+                  name="fifth soft skill"
                   placeholder="Soft skill 5..."
                   class="skills"
                   aria-label="Soft skill 5"
@@ -207,7 +221,7 @@
                 <input
                   type="text"
                   id="softskill-six-el"
-                  name="sixth softskill"
+                  name="sixth soft skill"
                   placeholder="Soft skill 6..."
                   class="skills"
                   aria-label="Soft skill 6"
@@ -286,16 +300,19 @@
             </section>
 
             <div class="btn-container">
-              <button id="save-el" type="button" aria-label="save">Save</button>
-              <button id="get-el" type="button" aria-label="get information">
-                Get info
-              </button>
               <button
                 id="form-data-el"
                 type="submit"
                 aria-label="get information"
               >
-                Form
+                Save
+              </button>
+              <button id="get-el" type="button" aria-label="get information">
+                Restore
+              </button>
+
+              <button id="reset-el" type="button" aria-label="reset">
+                Reset
               </button>
             </div>
           </form>

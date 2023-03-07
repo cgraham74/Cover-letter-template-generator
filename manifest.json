@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "name": "Cover letter",
   "permissions": ["storage"],
-
+  "background": {
+    "service-worker": ["background.js"]
+  },
   "options_ui": {
     "page": "options.html",
     "open_in_tab": false

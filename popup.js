@@ -57,6 +57,13 @@ function greeting() {
   return company.hiringPerson ? company.hiringPerson : company.name;
 }
 
+chrome.storage.local.get(null, function (items) {
+  let entries = Object.keys(items);
+  entries.forEach((element) => {
+    console.log(JSON.stringify(element));
+  });
+});
+
 const chromeObj = chrome.storage.local
   .get([
     "firstname",
