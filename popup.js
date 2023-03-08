@@ -4,14 +4,6 @@ const downloadPdfBtn = document.getElementById("download-pdf-btn");
 
 //blur background of popup
 
-
-//Data needed / questions to ask
-//completed program / What course did you complete?
-//company name / What company are you applying to?
-//Three job bullets / What bullet points are in the job listing?
-//Recruiter name (if blank - use company name) / Is there a hiring person/recruiter to send cover letter to?
-//Job title you are applying to / What is the position title?
-
 //Implement download as word doc functionality
 
 //implement download as pdf functionality
