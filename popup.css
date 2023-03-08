@@ -85,3 +85,6 @@ input {
   margin: 0 auto;
   padding: 0.5em;
 }
+#cover-container.blur {
+  filter: blur(5px);
+}

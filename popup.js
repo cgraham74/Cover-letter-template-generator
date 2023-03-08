@@ -53,7 +53,7 @@ const projects = [
 ];
 
 let softskills = [];
-
+renderCover();
 //------------beginning of modal-----------------------
 
 // Create the modal element
@@ -120,6 +120,8 @@ modal.appendChild(content);
 // Add the modal to the document
 document.body.appendChild(modal);
 
+// Add blue to the background of popup
+document.getElementById("cover-container").classList.add("blur");
 // Create a function to handle the form submission
 function handleSubmit(event) {
   event.preventDefault();
@@ -133,6 +135,8 @@ function handleSubmit(event) {
     console.log(company);
 
   renderCover();
+  //remove the blur
+  document.getElementById("cover-container").classList.remove("blur");
   // Close the modal
   modal.remove();
 }
