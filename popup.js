@@ -304,3 +304,26 @@ function coverLetterTemplate() {
 
   coverLetterContainer.innerHTML = template;
 }
+
+//download to word doc
+downloadDocBtn.addEventListener("click", function () {
+  const coverLetter = document.getElementById(
+    "cover-letter-container"
+  ).innerHTML;
+  const filename = `${company.name} Cover Letter.doc`;
+
+  const blob = new Blob(["\ufeff", coverLetter], {
+    type: "application/msword",
+  });
+
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.setAttribute("href", url);
+  link.setAttribute("download", filename);
+  link.style.visibility = "hidden";
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
