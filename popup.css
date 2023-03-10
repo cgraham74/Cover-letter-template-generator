@@ -66,6 +66,7 @@ button:active {
   overflow: auto;
 }
 input[type="text"] {
+  margin-bottom: 0.8em;
   border: none;
   border-bottom: 1px solid;
   cursor: pointer;
