@@ -268,7 +268,9 @@ function coverLetterTemplate() {
 
   const template = `
       ${getCurrentLocalDate()}
+
       Dear ${greeting()},
+
       I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
       This is an exciting opportunity to work for ${name} because of the focus on ${firstBullet}, ${secondBullet}, and ${thirdBullet}. 
       With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
@@ -304,25 +306,29 @@ function coverLetterTemplate() {
   coverLetterContainer.innerText = template;
 }
 
-//download to word doc
 downloadDocBtn.addEventListener("click", function () {
-  const coverLetter = document.getElementById(
-    "cover-letter-container"
-  ).innerHTML;
-  const filename = `${company.name} Cover Letter.doc`;
-
-  const blob = new Blob(["\ufeff", coverLetter], {
-    type: "application/msword",
-  });
-
-  const url = URL.createObjectURL(blob);
-
-  const link = document.createElement("a");
-  link.setAttribute("href", url);
-  link.setAttribute("download", filename);
-  link.style.visibility = "hidden";
-
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  exportCoverLetter();
 });
+
+//download to word doc
+function exportCoverLetter() {
+  const header =
+    "<html xmlns:o='urn:shcemas-microsoft-com:office'" +
+    "xmlns:w='urn:schemas-microsoft-com:office:word'" +
+    "xmlns='http://www.w3.org/TR/REC-html40'>" +
+    "<head><meta charset='utf-8'><title>Export Cover letter to Word Document</title></head><body>";
+  const footer = "</body></html>";
+  const sourceHTML =
+    header +
+    document.getElementById("cover-letter-container").innerHTML +
+    footer;
+  const source =
+    "data:application/vnd.ms-word;charset=utf-8," +
+    encodeURIComponent(sourceHTML);
+  const fileDownload = document.createElement("a");
+  document.body.appendChild(fileDownload);
+  fileDownload.href = source;
+  fileDownload.download = `${company.name}.doc`;
+  fileDownload.click();
+  document.body.removeChild(fileDownload);
+}
