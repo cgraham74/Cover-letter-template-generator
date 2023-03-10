@@ -267,42 +267,41 @@ function coverLetterTemplate() {
   const { fullname, mobile, email, linkedIn, gitHub, portfolio } = user;
 
   const template = `
-      <p id="date-el">${getCurrentLocalDate()}</p>
-      <p id="greeting-el">Dear ${greeting()},</p>
-      <p id="intro-el">I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
+      ${getCurrentLocalDate()}
+      Dear ${greeting()},
+      I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
       This is an exciting opportunity to work for ${name} because of the focus on ${firstBullet}, ${secondBullet}, and ${thirdBullet}. 
       With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
-      I believe that I would be an excellent candidate for the role.</p>
+      I believe that I would be an excellent candidate for the role.
   
-      <p id="current-skills-el">While working ${type}, I recently completed an accelerated ${educationCourse} boot camp with Merit America. 
+      While working ${type}, I recently completed an accelerated ${educationCourse} boot camp with Merit America. 
       As an aspiring ${jobTitle}, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
       and web development with React using ES6 JavaScript. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
       Git, and Design Patterns. In addition to conquering many individual assignments, pair programming assignments, and algorithm problems, I had the 
       opportunity to showcase my abilities by collaboratively building a ${projectName} application, ${
     projects[1].name
   } application, and most recently 
-      a full-stack ${projectName} application that ${projectDescription}.</p>
+      a full-stack ${projectName} application that ${projectDescription}.
   
-      <p id="work-history-el">Prior to joining the Merit America program, I worked for over ${years} years in the ${industry} industry.  
+      Prior to joining the Merit America program, I worked for over ${years} years in the ${industry} industry.  
       Through this experience, I developed and refined ${softskills[0]} and ${
     softskills[1]
   } skills necessary to succeed in the ${jobTitle} role. 
       Changing careers is never easy, but my passion has always been technology and I could not be more excited to pursue this 
-      opportunity with ${name}.</p>
+      opportunity with ${name}.
   
-      <p id="closing-el">I hope that we can further discuss what value I can add to your team in an interview.</p>
-      <p id="signature-el">Regards,</p>
-      <p>
-      <span id="user-name-el" class="signature">${fullname}</span><br>
-      <span id="user-mobile-el" class="signature">${mobile}</span><br>
-      <span id="user-email-el" class="signature">${email}</span><br>
-      <span id="user-linkedin-el" class="signature">${linkedIn}</span><br>
-      <span id="user-github-el" class="signature">${gitHub}</span><br>
-      <span id="user-portfolio-el" class="signature">${portfolio}</span><br>
-      </p>
+      I hope that we can further discuss what value I can add to your team in an interview.
+      Regards,
+      
+      ${fullname}
+      ${mobile}
+      ${email}
+      ${linkedIn}
+      ${gitHub}
+      ${portfolio}
     `;
 
-  coverLetterContainer.innerHTML = template;
+  coverLetterContainer.innerText = template;
 }
 
 //download to word doc
