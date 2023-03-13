@@ -132,9 +132,7 @@ function handleSubmit(event) {
     (company.firstBullet = firstBulletInput.value),
     (company.secondBullet = secondBulletInput.value),
     (company.thirdBullet = thirdBulletInput.value),
-    console.log(company);
-
-  renderCover();
+    renderCover();
   //remove the blur
   document.getElementById("cover-container").classList.remove("blur");
   // Close the modal
@@ -149,14 +147,6 @@ submitButton.addEventListener("click", handleSubmit);
 function greeting() {
   return company.hiringPerson ? company.hiringPerson : company.name;
 }
-
-// Using this for testing purposes - remove later
-chrome.storage.local.get(null, function (items) {
-  let entries = Object.keys(items);
-  entries.forEach((element) => {
-    console.log(JSON.stringify(element));
-  });
-});
 
 function renderCover() {
   chrome.storage.local.get(
@@ -191,7 +181,7 @@ function renderCover() {
         console.log(chrome.runtime.lastError.message);
         return;
       }
-      console.log(result);
+
       const {
         "first name": firstname,
         "last name": lastname,
@@ -248,10 +238,6 @@ function renderCover() {
       projects[2].name = thirdProject;
       projects[2].desc = thirdDesc;
 
-      console.dir(projects);
-      console.dir(user);
-      console.dir(employer);
-      console.dir(company);
       coverLetterHeader.innerText = `Cover letter for ${company.name}`;
       coverLetterTemplate();
     }
@@ -266,10 +252,11 @@ async function coverLetterTemplate() {
   const { name: projectName, desc: projectDescription } = projects[2];
   const { fullname, mobile, email, linkedIn, gitHub, portfolio } = user;
   const isWorkingText = await isWorking(type);
+  const greetingText = await greeting();
   const template = `
       ${getCurrentLocalDate()}
 
-      Dear ${greeting()},
+      Dear ${greetingText},
 
       I am writing to express my enthusiasm and interest in the ${jobTitle} position.  
       This is an exciting opportunity to work for ${name} because of the focus on ${firstBullet}, ${secondBullet}, and ${thirdBullet}. 

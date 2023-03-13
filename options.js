@@ -31,12 +31,10 @@ const fields = [
 
 radioBtnYes.addEventListener("click", () => {
   jobTypeEl.classList.toggle("hidden");
-  console.log(jobTypeEl.classList);
 });
 
 radioBtnNo.addEventListener("click", () => {
   jobTypeEl.classList.toggle("hidden");
-  console.log(jobTypeEl.classList);
 });
 
 form.addEventListener("submit", (e) => {
@@ -49,7 +47,6 @@ form.addEventListener("submit", (e) => {
   for (const [key, value] of fd) {
     if (value) {
       chrome.storage.local.set({ [key]: value }, () => {
-        console.log(`Value for ${key} is set to ${value}`);
         updateStatus(`✔️ Updated ${key} to ${value}`);
       });
     }
@@ -66,31 +63,28 @@ function updateStatus(message) {
   }
 }
 
-function getTemplateInfo() {
-  restoreOptions();
-  chrome.storage.local.get(null, function (items) {
-    let entries = Object.entries(items);
-    console.log(entries);
-    entries.forEach((element) => {
-      console.log(element);
-    });
-  });
-}
+// function getTemplateInfo() {
+//   restoreOptions();
+//   chrome.storage.local.get(null, function (items) {
+//     let entries = Object.entries(items);
+//     console.log(entries);
+//     entries.forEach((element) => {
+//       console.log(element);
+//     });
+//   });
+// }
 
 function restoreOptions() {
   chrome.storage.local.get(null, function (items) {
     for (const field of fields) {
       if (field.id) {
         const value = items[field.key];
-        console.log(`field.id: ${field.id}`);
-        console.log(`value: ${value}`);
+
         const el = document.getElementById(field.id);
-        // console.log(`el: ${el}`);
+
         if (el && value !== null && value !== undefined) {
           el.value = value;
-          console.log(value);
         } else if (field.id === "employed-el" && el) {
-          console.log("else value: " + value);
           el.value = "no";
         }
       }
