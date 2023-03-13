@@ -63,16 +63,16 @@ function updateStatus(message) {
   }
 }
 
-// function getTemplateInfo() {
-//   restoreOptions();
-//   chrome.storage.local.get(null, function (items) {
-//     let entries = Object.entries(items);
-//     console.log(entries);
-//     entries.forEach((element) => {
-//       console.log(element);
-//     });
-//   });
-// }
+function getTemplateInfo() {
+  restoreOptions();
+  chrome.storage.local.get(null, function (items) {
+    let entries = Object.entries(items);
+    console.log(entries);
+    entries.forEach((element) => {
+      console.log(element);
+    });
+  });
+}
 
 function restoreOptions() {
   chrome.storage.local.get(null, function (items) {
