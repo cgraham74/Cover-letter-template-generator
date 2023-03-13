@@ -257,7 +257,7 @@ function renderCover() {
     }
   );
 }
-function coverLetterTemplate() {
+async function coverLetterTemplate() {
   const coverLetterContainer = document.getElementById(
     "cover-letter-container"
   );
@@ -265,7 +265,7 @@ function coverLetterTemplate() {
   const { type, industry, years } = currentEmployer;
   const { name: projectName, desc: projectDescription } = projects[2];
   const { fullname, mobile, email, linkedIn, gitHub, portfolio } = user;
-
+  const isWorkingText = await isWorking(type);
   const template = `
       ${getCurrentLocalDate()}
 
@@ -276,7 +276,7 @@ function coverLetterTemplate() {
       With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
       I believe that I would be an excellent candidate for the role.
   
-      While working ${type}, I recently completed an accelerated ${educationCourse} boot camp with Merit America. 
+      ${isWorkingText}I recently completed an accelerated ${educationCourse} boot camp with Merit America. 
       As an aspiring ${jobTitle}, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
       and web development with React using ES6 JavaScript. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
       Git, and Design Patterns. In addition to conquering many individual assignments, pair programming assignments, and algorithm problems, I had the 
@@ -304,6 +304,17 @@ function coverLetterTemplate() {
     `;
 
   coverLetterContainer.innerText = template;
+}
+function isWorking(job_type) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get("employed", function (result) {
+      if (result.employed === "no") {
+        resolve("");
+      } else {
+        resolve(`While working ${job_type}, `);
+      }
+    });
+  });
 }
 
 downloadDocBtn.addEventListener("click", function () {
