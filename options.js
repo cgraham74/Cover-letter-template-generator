@@ -27,6 +27,13 @@ const fields = [
   { id: "project-two-desc-el", key: "second project description" },
   { id: "project-three-name-el", key: "third project" },
   { id: "project-three-desc-el", key: "third project description" },
+  { id: "education-program-name-el", key: "education program" },
+  { id: "first-learned-skill", key: "first learned skill" },
+  { id: "second-learned-skill", key: "second learned skill" },
+  { id: "third-learned-skill", key: "third learned skill" },
+  { id: "fourth-learned-skill", key: "fourth learned skill" },
+  { id: "fifth-learned-skill", key: "fifth learned skill" },
+  { id: "sixth-learned-skill", key: "sixth learned skill" },
 ];
 
 radioBtnYes.addEventListener("click", () => {

@@ -7,9 +7,12 @@
   --gradient-tones: to bottom right, #3a759a, #005287;
   --gradient-tones-accent: to bottom right, #3a9a8f, #005287;
 }
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   color: var(--darker);

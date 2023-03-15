@@ -2,11 +2,6 @@ const coverLetterHeader = document.getElementById("cover-letter-title-el");
 const downloadDocBtn = document.getElementById("download-doc-btn");
 const downloadPdfBtn = document.getElementById("download-pdf-btn");
 
-//blur background of popup
-
-//Implement download as word doc functionality
-
-//implement download as pdf functionality
 let educationCourse = "Full Stack Java Development";
 function getCurrentLocalDate() {
   const currentDate = new Date();
@@ -20,6 +15,14 @@ function getCurrentLocalDate() {
 //create company outside of modal for template access
 const company = {};
 
+
+//create program and learned skills
+const education = {
+  programName: "",
+  learnedSkillsList: [
+
+  ]
+}
 const user = {
   fullname: "",
   email: "",
