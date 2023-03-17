@@ -135,3 +135,11 @@ section {
 .status-container {
   padding: 1em;
 }
+.radio-label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.3em;
+}
+.radio-btn-container {
+  display: flex;
+}

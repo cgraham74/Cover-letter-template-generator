@@ -99,33 +99,28 @@
             <section id="employment">
               <fieldset class="fieldset-container">
                 <legend><h3>Employment</h3></legend>
+                <p>Currently employed?</p>
+                <div class="radio-btn-container">
+                  <label class="radio-label" for="yes">Yes</label>
+                  <input
+                    type="radio"
+                    id="yes"
+                    name="employed"
+                    class="employer radio-btn"
+                    value="yes"
+                  />
 
-                <p>
-                  Instructions for Currently employed:<br />
-                  selecting <em>Yes</em> will include the sentence:<br />
-                  "While working <em>full time </em>or <em>part time</em> at
-                  <em>Company's name</em>"
-                </p>
-                <p>Are you currently employed?</p>
-                <label for="yes">Yes</label>
-                <input
-                  type="radio"
-                  id="yes"
-                  name="employed"
-                  class="employer radio-btn"
-                  value="yes"
-                />
-                <label for="no">No</label>
-                <input
-                  type="radio"
-                  id="no"
-                  name="employed"
-                  class="employer radio-btn"
-                  value="no"
-                  checked
-                />
+                  <label class="radio-label" for="no">No </label>
+                  <input
+                    type="radio"
+                    id="no"
+                    name="employed"
+                    class="employer radio-btn"
+                    value="no"
+                    checked
+                  />
+                </div>
                 <!-- if employed - show jobtype -->
-
                 <br />
                 <label for="job-type-el" class="hidden"> Job Type:</label>
                 <select
@@ -151,7 +146,7 @@
                   type="text"
                   id="current-employer-industry-el"
                   name="industry"
-                  placeholder="Industry? Example: Retail... Service... Construction..."
+                  placeholder="Industry... Example: Retail, Service, Construction"
                   class="employer"
                   aria-label="Industry"
                 />
@@ -168,14 +163,14 @@
 
                 <br />
                 <h4>Transferable soft skills</h4>
-                <p>List up to 6 soft skills learned during this employment.</p>
+                <p>Skills learned during this employment.</p>
                 <input
                   type="text"
                   id="softskill-one-el"
                   name="first soft skill"
                   placeholder="Soft skill..."
                   class="skills"
-                  aria-label="Soft skill 1"
+                  aria-label="first soft skill"
                 />
                 <br />
 
@@ -183,9 +178,9 @@
                   type="text"
                   id="softskill-two-el"
                   name="second soft skill"
-                  placeholder="Soft skill 2..."
+                  placeholder="Soft skill..."
                   class="skills"
-                  aria-label="Soft skill 2"
+                  aria-label="second soft skill"
                 />
                 <br />
 
@@ -193,9 +188,9 @@
                   type="text"
                   id="softskill-three-el"
                   name="third soft skill"
-                  placeholder="Soft skill 3..."
+                  placeholder="Soft skill..."
                   class="skills"
-                  aria-label="Soft skill 3"
+                  aria-label="third soft skill"
                 />
                 <br />
 
@@ -203,9 +198,9 @@
                   type="text"
                   id="softskill-four-el"
                   name="fourth soft skill"
-                  placeholder="Soft skill 4..."
+                  placeholder="Soft skill..."
                   class="skills"
-                  aria-label="Soft skill 4"
+                  aria-label="fourth soft skill"
                 />
                 <br />
 
@@ -213,9 +208,9 @@
                   type="text"
                   id="softskill-five-el"
                   name="fifth soft skill"
-                  placeholder="Soft skill 5..."
+                  placeholder="Soft skill..."
                   class="skills"
-                  aria-label="Soft skill 5"
+                  aria-label="fifth soft skill"
                 />
                 <br />
 
@@ -223,86 +218,35 @@
                   type="text"
                   id="softskill-six-el"
                   name="sixth soft skill"
-                  placeholder="Soft skill 6..."
+                  placeholder="Soft skill..."
                   class="skills"
-                  aria-label="Soft skill 6"
+                  aria-label="sixth soft skill"
                 />
-                <br />
               </fieldset>
             </section>
 
             <section id="projects">
               <fieldset class="fieldset-container">
-                <legend><h3>Projects</h3></legend>
-
+                <legend><h3>Education Program</h3></legend>
+                <input
+                type="text"
+                id="institution-el"
+                name="institution name"
+                placeholder="Institution name..."
+                class="education"
+                aria-label="Institution name"
+              />
+              <br />
                 <input
                   type="text"
-                  id="project-one-name-el"
-                  name="first project"
-                  placeholder="First project name..."
-                  class="projects"
-                  aria-label="Project name 1"
+                  id="education-program-el"
+                  name="program name"
+                  placeholder="Program name..."
+                  class="education"
+                  aria-label="Program name"
                 />
                 <br />
-
-                <textarea
-                  name="first project description"
-                  id="project-one-desc-el"
-                  rows="5"
-                  cols="25"
-                  placeholder="Description..."
-                  class="projects"
-                  aria-label="Project 1 Description"
-                ></textarea>
-                <br />
-
-                <input
-                  type="text"
-                  id="project-two-name-el"
-                  name="second project"
-                  placeholder="Second project name..."
-                  class="projects"
-                  aria-label="Project name 2"
-                />
-                <br />
-
-                <textarea
-                  id="project-two-desc-el"
-                  name="second project description"
-                  rows="5"
-                  cols="25"
-                  placeholder="Description..."
-                  class="projects"
-                  aria-label="Project 2 Description"
-                ></textarea>
-                <br />
-
-                <input
-                  type="text"
-                  id="project-three-name-el"
-                  name="third project"
-                  placeholder="Third project name..."
-                  class="projects"
-                  aria-label="Project name 3"
-                />
-                <br />
-
-                <textarea
-                  id="project-three-desc-el"
-                  rows="5"
-                  cols="25"
-                  placeholder="Description..."
-                  name="third project description"
-                  class="projects"
-                  aria-label="Project 3 Description"
-                ></textarea>
-                <br />
-              </fieldset>
-            </section>
-            <!-- start -->
-            <section id="hard-skills">
-              <fieldset class="fieldset-container">
-                <legend><h3>Hard Skills</h3></legend>
+                <h4>Hard Skills</h4>
                 <input
                   type="text"
                   id="first-hardskill-el"
@@ -360,9 +304,72 @@
                   aria-label="sixth hardskill name"
                 />
                 <br />
+                <h4>Projects</h4>
+                <input
+                  type="text"
+                  id="project-one-name-el"
+                  name="first project"
+                  placeholder="First project name..."
+                  class="projects"
+                  aria-label="First project name"
+                />
+                <br />
+
+                <textarea
+                  name="first project description"
+                  id="project-one-desc-el"
+                  rows="5"
+                  cols="25"
+                  placeholder="Description..."
+                  class="projects"
+                  aria-label="First project Description"
+                ></textarea>
+                <br />
+
+                <input
+                  type="text"
+                  id="project-two-name-el"
+                  name="second project"
+                  placeholder="Second project name..."
+                  class="projects"
+                  aria-label="Second project name"
+                />
+                <br />
+
+                <textarea
+                  id="project-two-desc-el"
+                  name="second project description"
+                  rows="5"
+                  cols="25"
+                  placeholder="Description..."
+                  class="projects"
+                  aria-label="Second project Description"
+                ></textarea>
+                <br />
+
+                <input
+                  type="text"
+                  id="project-three-name-el"
+                  name="third project"
+                  placeholder="Third project name..."
+                  class="projects"
+                  aria-label="Third project name"
+                />
+                <br />
+
+                <textarea
+                  id="project-three-desc-el"
+                  rows="5"
+                  cols="25"
+                  placeholder="Description..."
+                  name="third project description"
+                  class="projects"
+                  aria-label="Third project Description"
+                ></textarea>
+                <br />
               </fieldset>
             </section>
-            <!-- stop -->
+
             <div class="btn-container">
               <button
                 id="form-data-el"

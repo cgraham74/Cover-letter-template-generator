@@ -2,7 +2,6 @@ const coverLetterHeader = document.getElementById("cover-letter-title-el");
 const downloadDocBtn = document.getElementById("download-doc-btn");
 const downloadPdfBtn = document.getElementById("download-pdf-btn");
 
-let educationCourse = "Full Stack Java Development";
 function getCurrentLocalDate() {
   const currentDate = new Date();
   const year = currentDate.getFullYear();
@@ -15,14 +14,12 @@ function getCurrentLocalDate() {
 //create company outside of modal for template access
 const company = {};
 
-
 //create program and learned skills
 const education = {
+  institutionName: "",
   programName: "",
-  learnedSkillsList: [
-
-  ]
-}
+  learnedSkillsList: [],
+};
 const user = {
   fullname: "",
   email: "",
@@ -172,12 +169,20 @@ function renderCover() {
       "fourth soft skill",
       "fifth soft skill",
       "sixth soft skill",
+      "institution name",
+      "program name",
       "first project",
       "first project description",
       "second project",
       "second project description",
       "third project",
       "third project description",
+      "first hardskill",
+      "second hardskill",
+      "third hardskill",
+      "fourth hardskill",
+      "fifth hardskill",
+      "sixth hardskill",
     ],
     function (result) {
       if (chrome.runtime.lastError) {
@@ -204,12 +209,20 @@ function renderCover() {
         "fourth soft skill": fourthSkill,
         "fifth soft skill": fifthSkill,
         "sixth soft skill": sixthSkill,
+        "institution name": institutionName,
+        "program name": programName,
         "first project": firstProject,
         "first project description": firstDesc,
         "second project": secondProject,
         "second project description": secondDesc,
         "third project": thirdProject,
         "third project description": thirdDesc,
+        "first hardskill": firstHardSkill,
+        "second hardskill": secondHardSkill,
+        "third hardskill": thirdHardSkill,
+        "fourth hardskill": fourthHardSkill,
+        "fifth hardskill": fifthHardSkill,
+        "sixth hardskill": sixthHardSkill,
       } = result;
 
       currentEmployer.name = employer;
@@ -217,6 +230,15 @@ function renderCover() {
       currentEmployer.industry = industry;
       currentEmployer.type = jobtype;
       currentEmployer.years = years;
+
+      education.institutionName = institutionName;
+      education.programName = programName;
+      education.learnedSkillsList[0] = firstHardSkill;
+      education.learnedSkillsList[1] = secondHardSkill;
+      education.learnedSkillsList[2] = thirdHardSkill;
+      education.learnedSkillsList[3] = fourthHardSkill;
+      education.learnedSkillsList[4] = fifthHardSkill;
+      education.learnedSkillsList[5] = sixthHardSkill;
 
       softskills = [
         firstSkill,
@@ -240,7 +262,6 @@ function renderCover() {
       projects[1].desc = secondDesc;
       projects[2].name = thirdProject;
       projects[2].desc = thirdDesc;
-
       coverLetterHeader.innerText = `Cover letter for ${company.name}`;
       coverLetterTemplate();
     }
@@ -266,9 +287,16 @@ async function coverLetterTemplate() {
       With my learning agility, grit, and desire to continuously improve my skills in the technology field, 
       I believe that I would be an excellent candidate for the role.
   
-      ${isWorkingText}I recently completed an accelerated ${educationCourse} boot camp with Merit America. 
-      As an aspiring ${jobTitle}, I have been actively training on technologies such as Java, Spring, Relational Databases, REST APIs, 
-      and web development with React using ES6 JavaScript. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
+      ${isWorkingText}I recently completed an accelerated ${
+    education.programName
+  } program with ${education.institutionName}. 
+      As an aspiring ${jobTitle}, I have been actively training on technologies such as ${
+    education.learnedSkillsList[0]
+  }, ${education.learnedSkillsList[1]}, ${education.learnedSkillsList[2]}, ${
+    education.learnedSkillsList[3]
+  }, ${education.learnedSkillsList[4]}, and ${
+    education.learnedSkillsList[5]
+  }. I have also ramped up on software development methodologies such as Agile, 12 Factor Apps, 
       Git, and Design Patterns. In addition to conquering many individual assignments, pair programming assignments, and algorithm problems, I had the 
       opportunity to showcase my abilities by collaboratively building a ${projectName} application, ${
     projects[1].name
