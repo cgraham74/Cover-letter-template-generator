@@ -21,19 +21,20 @@ const fields = [
   { id: "softskill-four-el", key: "fourth soft skill" },
   { id: "softskill-five-el", key: "fifth soft skill" },
   { id: "softskill-six-el", key: "sixth soft skill" },
+  { id: "institution-el", key: "institution name" },
+  { id: "education-program-el", key: "program name" },
   { id: "project-one-name-el", key: "first project" },
   { id: "project-one-desc-el", key: "first project description" },
   { id: "project-two-name-el", key: "second project" },
   { id: "project-two-desc-el", key: "second project description" },
   { id: "project-three-name-el", key: "third project" },
   { id: "project-three-desc-el", key: "third project description" },
-  { id: "education-program-name-el", key: "education program" },
-  { id: "first-learned-skill", key: "first learned skill" },
-  { id: "second-learned-skill", key: "second learned skill" },
-  { id: "third-learned-skill", key: "third learned skill" },
-  { id: "fourth-learned-skill", key: "fourth learned skill" },
-  { id: "fifth-learned-skill", key: "fifth learned skill" },
-  { id: "sixth-learned-skill", key: "sixth learned skill" },
+  { id: "first-hardskill-el", key: "first hardskill" },
+  { id: "second-hardskill-el", key: "second hardskill" },
+  { id: "third-hardskill-el", key: "third hardskill" },
+  { id: "fourth-hardskill-el", key: "fourth hardskill" },
+  { id: "fifth-hardskill-el", key: "fifth hardskill" },
+  { id: "sixth-hardskill-el", key: "sixth hardskill" },
 ];
 
 radioBtnYes.addEventListener("click", () => {
@@ -112,7 +113,6 @@ function resetTemplateInfo() {
 }
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
-// document.getElementById("save-el").addEventListener("click", save_options);
 document
   .getElementById("restore-el")
   .addEventListener("click", getTemplateInfo);
